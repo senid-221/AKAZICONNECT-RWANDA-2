@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+	<head>
+
+		<title>Seeker - Seeker - Vacancy Search Results</title>
+
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="icon" type="image/x-icon" href="/dos-era/images/favicon.ico">		
+		<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+		<meta http-equiv="cache-control" content="max-age=0, no-store, no-cache, must-revalidate"/>
+		<meta http-equiv="pragma" content="no-cache"/>
+		<meta http-equiv="expires" content="-1"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Default boostrap_seeker.ftl -->
+
+		<link href="/dos-era/dev_ux/css/seeker-bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="/static/dosera/default/web/dev_ux/css/seeker-bootstrap-custom.css" rel="stylesheet" type="text/css" />
+
+		<script type="text/javascript" src="/dos-era/js/hcm.js"></script>
+		<script type="text/javascript" src="/dos-era/js/session.js"></script>
+		<script type="text/javascript" src="/dos-era/mgs_resources/js/libs/jquery-3.6.0.min.js"></script>
+		<script type="text/javascript" src="/dos-era/js/jquery.alerts.js"></script>
+		<script type="text/javascript" src="/dos-era/js/jquery.ui.draggable.js"></script>
+    <script type="text/javascript" src="/dos-era/dev_ux/css/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="/dos-era/js/closing.js"></script>
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="/dos-era/libs/html5shiv.min.js"></script>
+			<script src="/dos-era/libs/respond.min.js"></script>
+		<![endif]-->
+		<!--[if lt IE 10]>
+			<script src="/dos-era/libs/excanvas.min.js"></script>
+		<![endif]-->
+    <!-- Fallback for disabled font download -->
+<link href="/dos-era/font/fontMonster.css" rel="stylesheet" type="text/css">
+<!--[if lte IE 8]>
+<link rel="stylesheet" href="/dos-era/font/icons-sprite.css"/>
+<link rel="stylesheet" href="/dos-era/font/tinymce-icons-sprite.css"/>
+<![endif]-->
+<style>
+  @font-face {
+    font-family: "fontSpy";
+    font-style: normal;
+    font-weight: normal;
+    src:  url('/dos-era/font/fontSpy.eot');
+    src:  url('/dos-era/font/fontSpy.eot?#iefix') format('embedded-opentype'),
+    url('/dos-era/font/fontSpy.woff') format('woff'),
+    url('/dos-era/font/fontSpy.ttf') format('truetype'),
+    url('/dos-era/font/fontSpy.svg') format('svg');
+  }
+</style>
+<script type="text/javascript" src="/dos-era/font/fontSpy.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('body').addClass('webfont-disabled');
+    fontSpy('fontSpy', {
+      failure: function() {
+        $('head').append('<link rel="stylesheet" href="/dos-era/font/icons-sprite.css"/>');
+        $('head').append('<link rel="stylesheet" href="/dos-era/font/tinymce-icons-sprite.css"/>');
+      },
+      success: function() {
+        $('body').removeClass('webfont-disabled');
+      }
+    });
+  })
+</script>
+
+
+		<script type="text/javascript">
+			$(document).ready(function(){
+					$("#headerAlert").empty();
+
+          $('#password-toggle-icon').on('click keypress', function(){
+              $(this).toggleClass('icon-eye').toggleClass('icon-eye-blocked');
+              var curState = $('#userpass').prop('type');
+              if(curState=='text'){
+                  $('#userpass').prop('type', 'password');
+              }else{
+                  $('#userpass').prop('type', 'text');
+              }
+          });
+			});
+		</script>
+		<script>
+	        var isNewOBMode = false;
+		</script>
+
+	   	 	<script type="text/javascript" src="/dos-era/js/auth/multi-factor-auth.js"></script>
+		<script type="text/javascript">
+			
+      		function addErrorMessage(errorMsg) {
+						$("#loginError").empty();
+						$("#loginError").attr('aria-live', "assertive ");
+						var html = ' <span style="color: red;">Your login attempt was not successful.<br>Reason:&nbsp;'
+						if (errorMsg == 'invalid') {
+							html += 'The Email address and/or password was invalid. Please try again.</span>';
+						} else if (errorMsg == 'locked') {
+							html += 'Your login attempt was not successful. The e-mail address and/or password is invalid. Please try again or contact your Agency representative. </span>';
+						} else if (errorMsg == 'totp') {
+							html += 'The Verification Code is invalid. Please try again. </span>';
+						}
+
+						$('#loginError').append(html);
+
+					}
+		 </script>
+
+
+  
+    <meta name="pageName" content="searchVacancy"/>
+    
+    <script type="text/javascript" src="/dos-era/dev_ux/js/tree-view.js"></script>
+    <script type="text/javascript" src="/dos-era/font/fontSpy.js"></script>
+    <script type="text/javascript" src="/dos-era/dev_ux/js/accordion.js"></script>
+
+    <link rel="stylesheet" href="/dos-era/dev_ux/fonts/fontUltimate.css"/>
+    <link href="/dos-era/font/fontMonster.css" rel="stylesheet" type="text/css">
+
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="/dos-era/font/icons-sprite.css"/>
+    <link rel="stylesheet" href="/dos-era/font/tinymce-icons-sprite.css"/>
+    <![endif]-->
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            showChar = 400;
+            $(".clearAllFilter").focus();
+            $('body').addClass('webfont-disabled');
+            fontSpy('fontSpy', {
+                failure: function () {
+                    $('head').append('<link rel="stylesheet" href="/dos-era/font/icons-sprite.css"/>');
+                    $('head').append('<link rel="stylesheet" href="/dos-era/font/tinymce-icons-sprite.css"/>');
+                },
+                success: function () {
+                    $('body').removeClass('webfont-disabled');
+                }
+            });
+            $(".clearAllFilter").click(function(){
+                var obj = $( ".hiddenFilter" );
+                $('#salaryLowHiddenFilter').val('-1');
+                $("#searchctrl").val('');
+                $( ".hiddenFilter" ).remove();
+                $("#searchVacanciesForm").submit();
+            });
+
+            $('#sortby').on('change', function() {
+                var sortByValue = $('#sortby').val();
+                var keyword = $("#searchctrl").val();
+                if((keyword === '' && sortByValue !== 'Relevance') || keyword !== '' ){
+                    $("#searchVacanciesForm").submit();
+                }
+            });
+
+            $('.accordionHeader').attr("tabindex", "-1");
+
+            $('.i-accordionExpand').on('click keydown',function(event){
+                $(this).parent().next().attr("tabindex", "-1");
+
+                var actionTextSpan = $(this).parent().find('div').find('.sr-only');
+                var facetPanel = $(this).parent().next();
+
+                if(event.type == 'click' || event.keyCode == 13 || event.keyCode == 32) {
+                    if(facetPanel.attr('aria-hidden')=='true'){
+                        actionTextSpan.text("Filter Expanded");
+                    }else{
+                        actionTextSpan.text("Filter Collapsed");
+                    }
+                }
+            });
+
+            $('#salaryMin').keyup(function(){
+                if ($(this).val()){
+                    $('#salaryGo').removeAttr('disabled');
+                }else{
+                    $('#salaryGo').attr('disabled','disabled');
+                }
+            });
+
+        });
+
+        $(function () {
+            $('[data-bs-toggle="popover"]').popover()
+        });
+
+        function appendChild(objId,description,parentDivId,paramName){
+            var json = {"key": objId,"value": description};
+            var jsonString= JSON.stringify(json);
+            var input = document.createElement("input");
+            input.setAttribute("type", "hidden");
+            input.setAttribute("name", paramName);
+            input.setAttribute("value", jsonString);
+            input.setAttribute("class", "hiddenFilter");
+            $("#"+parentDivId).append(input);
+            $("#searchVacanciesForm").submit();
+        }
+
+        function removeFilter(inputId, action){
+            if(action === 'clear'){
+                if(inputId === 'salaryHiddenFilter'){
+                    $('#salaryLowHiddenFilter').val('-1');
+                }else{
+                    $('#'+inputId).val('');
+                }
+            }else{
+                $('#'+inputId).remove();
+            }
+            $("#searchVacanciesForm").submit();
+        }
+
+        function applySalaryFilter(allVacSalLow){
+            $('#salaryLowHiddenFilter').remove();
+            var salaryMin = $('#salaryMin').val();
+            var input = "<input type=\"hidden\" id=\"salaryLowHiddenFilter\" class=\"hiddenFilter\" name=\"vacancySearchCriteria.salaryLow\" value=\""+salaryMin+"\"/>";
+            $("#salaryDiv").append(input);
+            $("#searchVacanciesForm").submit();
+        }
+
+        function isNumber(evt) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+            return true;
+        }
+
+        function maxLengthCheck(object) {
+            if (object.value.length > object.maxLength)
+                object.value = object.value.slice(0, object.maxLength)
+        }
+    </script>
+    <script type="text/javascript" src="/dos-era/js/showMoreShowLess.js"></script>
+    <style type="text/css">
+        .morecontent span {
+            display: none;
+        }
+
+        .morecontent span span{
+            display: inline;
+        }
+
+        .solrHighlight{
+            font-weight: bold;
+            background-color: #dceef4;
+        }
+    </style>
+
+	
+<script type='text/javascript'>
+//<![CDATA[
+  
+  /*
+   * Safe in case script gets added multiple time to the page for some reason
+   */
+  if (typeof yourvar == 'originalWindowOpen' || 
+   window['originalWindowOpen'] == undefined || 
+   window['originalWindowOpen'] == void 0 
+  ){ 
+    /*
+     * Globl _ref token definition
+     */
+    window['_ref']='tgv5uwrnpt0';
+    /*
+     * Adding the _ref token to the url
+     */
+    function addRefToUrl(url){
+      var url=''+url;
+      if(url == ''){
+          return url;
+      }
+      if(typeof isInternalDomainUrl == 'function'){
+        if(!isInternalDomainUrl(url)){
+          return url;
+        }
+      }
+      var firstQuestionIndex=url.indexOf('?');
+      if(firstQuestionIndex==-1){
+        var hashIndex = url.indexOf('#');
+        if(hashIndex==-1){
+          return url+'?_ref=tgv5uwrnpt0';
+        }else{
+          return url.substring(0,hashIndex)+'?_ref=tgv5uwrnpt0'+url.substring(hashIndex,url.length);
+        }
+      }else{
+        var front;
+        var back;
+        var refIndex = url.indexOf('_ref=', firstQuestionIndex);
+        if(refIndex!=-1){
+          var refEnd = url.indexOf('&', refIndex+5);
+          if(refEnd==-1){
+            refEnd = url.indexOf('#', refIndex+5);
+            if(refEnd==-1){
+              refEnd = url.length;
+            }
+          }
+          front = url.substring(0, refIndex);
+          back = url.substring(refEnd, url.length);
+          if(back.length>0 && back.charAt(0)=='&'){
+            back = back.substring(1, back.length);
+          }
+        }else{
+          front = url.substring(0, firstQuestionIndex+1);
+          back = url.substring(firstQuestionIndex+1, url.length);
+        }
+        if(back.length==0){
+          return front+'_ref=tgv5uwrnpt0';
+        }else if(back.charAt(0)=='#'){
+          return front+'_ref=tgv5uwrnpt0'+back;
+        }else if(url.indexOf('&amp;',firstQuestionIndex)!=-1){
+          return front+'_ref=tgv5uwrnpt0&amp;'+back;
+        }else{
+          return front+'_ref=tgv5uwrnpt0&'+back;
+        }
+      }
+    }
+    /*
+     * Overriding the default window.open functionality to add the _ref token
+     */
+    var originalWindowOpen = window.open;
+    window.open = function(url, windowName, windowFeatures){
+      return originalWindowOpen(addRefToUrl(url), windowName, windowFeatures);
+    }
+  }
+    /*
+     * Only internal domain urls will receive the CSRF token
+     */
+    function isInternalDomainUrl(url){
+      url = url.toLowerCase();
+      if(url.indexOf('http://')==-1 && url.indexOf('https://')==-1){
+        return true;
+      }
+      var serverStart = url.indexOf('://') + '://'.length;
+      var portColonIndex = url.indexOf(':', serverStart);
+      var backslashIndex = url.indexOf('\\', serverStart);
+      var slashIndex = url.indexOf('/', serverStart);
+      var serverEnd;
+      if(portColonIndex!=-1 || backslashIndex!=-1 || slashIndex!=-1){
+        if(portColonIndex==-1){portColonIndex=url.length;}
+        if(backslashIndex==-1){backslashIndex=url.length;}
+        if(slashIndex==-1){slashIndex=url.length;}
+        serverEnd = Math.min(portColonIndex, backslashIndex, slashIndex);
+      }else{
+        serverEnd = url.length;
+      }
+      var serverStr = url.substring(serverStart, serverEnd);
+      if(serverStr == 'localhost' || serverStr == '127.0.0.1'){
+        return true;
+      }
+      var allowedDomainSuffixes = ['monster.com', 'quickhire.com', 'state.gov'];
+      for(var i=0;i<allowedDomainSuffixes.length;i++){
+        var allowedDomainSuffix = allowedDomainSuffixes[i];
+        if(serverStr==allowedDomainSuffix){
+          return true
+        }
+        if(serverStr.length > allowedDomainSuffix.length){
+          if(serverStr.indexOf('.'+allowedDomainSuffix, serverStr.length-allowedDomainSuffix.length-1) != -1){
+            return true;
+          }
+        }
+      }
+      return false;    }
+
+
+  
+//]]>
+</script>
+
+<script type="text/javascript">
+  //<![CDATA[
+   $( document ).ready(function() {
+     document.cookie="pageTitle="+encodeURIComponent($(document).attr('title')) +"; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/dos-era;"; //delete cookie first
+     document.cookie="pageTitle="+encodeURIComponent($(document).attr('title')) +"; path=/dos-era;secure;"; //then add cookie back
+   });
+  //]]>
+</script>
+
+</head>
+	<body    >
+		<!-- Javascript disabled alert -->
+		<section role="dialog" class="gutter-none" id="headerAlert">
+			<div class="alert alert-warning alert-illustrated alert-header">
+				<strong>Warning: </strong> Javascript is disabled. The application may not work properly for you.
+				Please enable Javascript and reload the page to continue.
+			</div>
+		</section>
+		<!-- /Javascript disabled alert -->
+		<a href="#contentStart" class="sr-only sr-only-focusable skip-link">Skip to main content</a>
+		<div class="application-container">
+			<header>
+				<section>
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 no-padding">
+
+            <div class="logo col-xs-9 col-sm-9 col-md-12">
+                   <div class="h1">
+                        <a target="dos" href="http://www.state.gov/?_ref=tgv5uwrnpt0" title="U.S. Department Of State DIPLOMACY IN ACTION">U.S. Department Of State
+                            <span>DIPLOMACY IN ACTION</span>
+                        </a>
+                    <h1 class="sr-only">U.S. Department Of State DIPLOMACY IN ACTION</h1>
+                   </div>
+            </div>
+            
+            <div class="container-fluid col-sm-3 col-md-12">
+            </div>
+
+
+
+
+
+    </div>
+
+</div>
+
+				</section>
+			</header>
+
+
+
+
+
+			<nav role="complementary" class="navbar-breadcrumbs">
+
+                <div class="p-2 clearfix justify-content-between">
+                    <ol class="nav navbar-nav navbar-right float-right">
+									<li>
+											<a href="/dos-era/login.hms?_ref=tgv5uwrnpt0"	class="loginModal">Login</a>
+									</li>
+                        </ol>
+
+					</div>
+			</nav>
+
+			<main>
+				<a name="contentStart" id="contentStart" tabindex="-1" ></a>
+
+				
+<h1 class="page-header" style="margin-top: 0em">Open Vacancies</h1>
+<form id="searchVacanciesForm" name="searchVacancies" action="/dos-era/vacancysearch/searchVacancies.hms" method="post" role="form"><input type='hidden' name='_ref' value='tgv5uwrnpt0' /><div class="card-group filteredSearch" id="otherFilter" role="tablist" aria-multiselectable="true">
+    <div class="card card-basic">
+
+        <div class="card-body" role="tab">
+            <div class="row">
+                <div class="col-md-6 col-sm-4 col-xs-12" style="margin-top: 0.8em">
+                    <p>
+                          0 records found, showing  0 - 0 of 0
+                    </p>
+                </div>
+                <div class="col-md-6 col-sm-4 col-xs-12 row pr-0">
+
+                    <div class="multisearchBox col-12 float-right">
+                        <div class="input-group mb-2 stylish-input-grou">
+                            <label for="searchctrl" class="sr-only">Find Open Vacancies based on these keywords, maximum
+                                200 characters.</label>
+
+
+<input type="text" name="vacancySearchCriteria.keyword" size="20" maxlength="200" value="" id="searchctrl" placeholder="Search for Open Vacancies" class="form-control"/>
+                            <span class="input-group-append">
+                                    <span class="accessible-content" id="ARIA_Start_Search">Start Search</span>
+                                    <button type="submit" class="btn btn-basic" aria-describedby="ARIA_Start_Search">
+                                            <span class="fm icon-search text-base"></span>
+                                            <span class="sr-only">Start Search</span>
+                                    </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="mt-3">
+    <div class="row form-group pl-3">
+        <label for="sortby" class="col-lg-8 col-md-7 col-sm-5 col-xs-12 control-label text-right">Sort By</label>
+        <div class="col-lg-4 col-md-5 col-sm-7 col-xs-12 pr-0">
+
+
+<select name="vacancySearchCriteria.sortBy" size="1" id="sortby" class="form-control">
+    <option value="Close Date (Ascending)" selected="selected">Close Date (Ascending)</option>
+    <option value="Close Date (Descending)">Close Date (Descending)</option>
+    <option value="Relevance">Relevance</option>
+</select>
+
+        </div>
+        <input id='sortRelevanceCounterHidden' type='hidden' name='vacancySearchCriteria.sortRelevanceCounter' value="0">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3" role="application"> 
+        <div class=" border-bottom border-solid border-default text-center">
+            <div class="h3" role="heading" aria-level="3">Filter Results By</div>
+        </div>
+        <div class="m-2">
+
+
+            <div id="seriesDiv">
+            </div>
+
+            <div id="gradeDiv">
+            </div>
+
+            <div id="locationDiv">
+            </div>
+
+
+            <div id="serviceDiv">
+            </div>
+
+            <div id="salaryDiv">
+            </div>
+
+            <input id='seriesCodeHidden' type='hidden' name='vacancySearchCriteria.series'>
+            <input id='gradeCodeHidden' type='hidden' name='vacancySearchCriteria.gradeCode'>
+            <input id='locationCodeHidden' type='hidden' name='vacancySearchCriteria.locationCode'>
+            <input id='officeServiceCodeHidden' type='hidden' name='vacancySearchCriteria.officeServiceCode'>
+        </div>
+
+        <div role="tablist" class="accordion" id="simple-accordion">
+            <div role="tab" class="accordionHeader row py-2" aria-selected="false">
+                <span tabindex="0" aria-hidden="true" class="fm i-accordionExpand pt-1"><span class="sr-only">Series Filter</span></span>
+                <div>Series<span class="sr-only">Filter Expanded</span></div>
+            </div>
+            <div aria-hidden="true" aria-labelledby="seriesFacet" role="tabpanel" class="accordionContent off facetOptionStyle">
+            </div>
+
+            <div role="tab" class="accordionHeader row py-2">
+                <span tabindex="0" aria-hidden="true" class="fm i-accordionExpand pt-1"><span class="sr-only">Grades Filter</span></span>
+                <div>Grades<span class="sr-only">Filter Expanded</span></div>
+            </div>
+            <div aria-hidden="true" aria-labelledby="gradesFacet" role="tabpanel" class="accordionContent off facetOptionStyle">
+            </div>
+
+
+            <div role="tab" class="accordionHeader row py-2">
+                <span tabindex="0" aria-hidden="true" class="fm i-accordionExpand pt-1"><span class="sr-only">Location Filter</span></span>
+                <div>Location<span class="sr-only">Filter Expanded</span></div>
+            </div>
+
+            <div aria-hidden="true" aria-labelledby="locationFacet" role="tabpanel" class="accordionContent off facetOptionStyle" >
+            </div>
+            <div role="tab" class="accordionHeader row py-2" id="salaryFacet">
+                <span tabindex="0" aria-hidden="true" class="fm i-accordionExpand pt-1"><span class="sr-only">Salary Filter</span></span>
+                <div>Salary<span class="sr-only">Filter Expanded</span></div>
+            </div>
+
+            <div aria-hidden="true" aria-labelledby="salaryFacet" role="tabpanel" class="accordionContent off facetOptionStyle">
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="input-group">
+                            <input id="salaryMin" class="form-control" placeholder="Minimum Salary" aria-label="Minimum Salary This field supports only whole numbers with a maximum length of 10 digits; any special characters including periods or commas will not be entered." type="number" min="0" max="9999999999" maxlength="10" oninput="maxLengthCheck(this)" onkeypress="return isNumber(event)"/>
+                            <div class="input-group-append">
+                                <button type="button" id="salaryGo" class="btn btn-basic px-2 btn-narrow" aria-label="apply salary filter" onclick="applySalaryFilter('0')" disabled>GO</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div role="tab" class="accordionHeader row py-2">
+                <span tabindex="0" aria-hidden="true" class="fm i-accordionExpand pt-1"><span class="sr-only">Agency Filter</span></span>
+                <div>Agency<span class="sr-only">Filter Expanded</span></div>
+            </div>
+
+            <div aria-hidden="true" aria-labelledby="serviceFacet" role="tabpanel" class="accordionContent off facetOptionStyle">
+            </div>
+        </div>
+    </div> 
+
+
+    <div class="col-md-9"> 
+
+            <div>
+                <div>&nbsp;</div>
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <span>Search Returned No Results</span>
+                    </div>
+                </div>
+            </div>
+    </div> 
+</div>
+</form>
+
+
+
+			</main>
+
+		  <footer>
+				<div class="row sk-footer">
+					<div class="col-xs-12">
+<div class="row sk-footer-text">
+    <div class="col-xs-12 col-sm-8 col-md-8">
+		      </div>
+    <div class="col-xs-12 col-sm-4 col-md-4">
+    </div>
+</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+
+		<div class="modal fade" id="loginModal" tabindex="-1" role="dialog"  aria-hidden="true" tabindex="-1" aria-labelledby="myLoginModalLabel">
+		      <div class="modal-dialog">
+		        <div class="modal-content">
+		        	<div class="modal-header">
+		                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+		                    <span aria-hidden="true">×</span>
+		                </button>
+
+		            </div>
+		        	 <div class="modal-body">
+
+<link rel="stylesheet" href="/dos-era/dev_ux/fonts/fontUltimate.css"/>
+<style type="text/css">
+		#password-toggle-icon {
+			line-height: 40px;
+			cursor: pointer;
+			pointer-events: all;
+		}
+</style>
+
+<form id="login" name="login" action="/dos-era/j_security_check.hms" method="post" class="form-horizontal row" autocomplete="off"><input type='hidden' name='_ref' value='tgv5uwrnpt0' />
+	<div class="border-thin-right top col-md-6">
+
+		<div role="alert" id="multiFactorMessage" hidden class="alert alert-success">
+We have sent you an email with instructions on how to reset your 2-Step Verification. Please check your email.		</div>
+
+	 	<h1 class="text-left" id="myLoginModalLabel">Login</h1>
+
+		<div class="mt-5" id="loginError">
+
+		</div>
+
+<div id="uidPassDiv" class="row">
+	<div class="input-group mt-4 col-md-12 input-inner-icon-prepend">
+		<label class="sr-only" id="sizing-addon2" for="userid">Enter Email</label>
+		<input id="userid" name="j_username" type="text" class="form-control" placeholder="Email"  value="">
+        <i class="fm icon-envelope ml-3"></i>
+	</div>
+	<div class="row-spacer spacer-small"></div>
+	<div class="input-group mt-2 col-md-12 input-inner-icon-prepend">
+		<label class="sr-only" id="sizing-addon3" for="userpass">Enter Your Password</label>
+		<input id="userpass" name="j_password" type="password" class="form-control" placeholder="Password" autocomplete="off">
+        <i class="fm icon-key ml-3"></i>
+	</div>
+</div>
+<div class="row">
+    <div id="fpDiv" class="input-group my-2 col-md-10">
+        <a href="/dos-era/forgotpassword/enterEmail!input.hms?_ref=tgv5uwrnpt0&amp;registrationSrc=login.ftl" class="btn-block">Forgot Password?</a>
+    </div>
+</div>
+
+		<div id="codeDiv" class="mt-2 mb-3" style="display:none;">
+		  <div class="row">
+			  <div class="mt-2 col-md-10">
+				  <h2>Authenticate</h2>
+			  </div>
+		  </div>
+		  <div class="row">
+			<div class="input-group col-12 input-inner-icon-prepend">
+				  <label class="input-group-prepend" id="sizing-addon4" for="code">
+					<span class="accessible-content">Please enter the code from your authenticator.</span>
+				  </label>
+				  <input id="code" name="code" type="text" class="form-control" placeholder="Authentication Code" aria-describedby="sizing-addon4" autocomplete="off">
+				<i class="fu ico-shield ml-3 fm"></i>
+			</div>
+		  </div>
+		</div>
+		<div class="row">
+            <div class="mt-2 col-md-10">
+                <input id="loginSubmit" type="submit" class="btn btn-primary " value="Login" name="login" alt="Login"/>
+            </div>
+		</div>
+
+	<div id="lostCodeDiv" style="display:none" class="input-group mt-2 col-md-10">
+        <p><b>Having Trouble?</b></p>
+        <p>We can reset your 2-Step verification using the email address we have on file.</p>
+        <a href="#!" id="lostCode" class="btn-block">Send Email</a>
+    </div>
+    
+	</div>
+
+	<div class=" col-md-6">
+		<div class="row-spacer spacer-large"></div>
+		<div class="row-spacer spacer-large"></div>
+		<div class="row-spacer spacer-large"></div>
+		<div class="row-spacer spacer-large"></div>
+		<div class="col-md-13 text-center">
+			<div class="card-title ">Don't have an account yet?</div>
+				<div class="row-spacer spacer-small"></div>
+					<a class="btn btn-basic " href="/dos-era/accountcreation/registration.hms?_ref=tgv5uwrnpt0&amp;registrationSrc=login.ftl">Create Account</a>
+
+		</div>
+	</div>
+
+	<div class="row-spacer spacer-large"></div>
+						<div class="row-spacer spacer-large"></div>
+						<div class="col-md-13">
+
+<p>TERMS AND CONDITIONS<br/><br/>By creating an account (login and password), I understand and expressly consent to the following:<ul><li>The information that I provide while filling out this online employment application form and completing the application process, including possibly sensitive data, will be transferred online, stored, and processed on a server in the United States of America.  This information may or may not be provided the same level of data protection as provided in my home country.</li><BR><li>The information that I provide will be retained and destroyed in accordance with U.S. Department of State record retention policies and procedures.</li><BR><li>The information that I provide will be reviewed and used for official purposes by the government of the United States of America.</li><BR><li>All data transfers via the internet are not 100% secure and there might be some security vulnerabilities.</li><BR><li>I may decide not to consent to these terms, but, if I do not consent to all of these terms, then I agree not to proceed with creating an account or moving forward with filling out the application, and I understand that I will not be considered for hiring.</li><BR></ul><br /> OMB APPROVAL NO. 1405-0189 <br />EXPIRES: 10/31/2026 <br />ESTIMATED BURDEN: 15 minutes <br /><br /> <br />PRIVACY AND PAPERWORK REDUCTION ACT STATEMENTS (For U.S. Citizens and Legal Permanent Residents of the U.S.) <br /> <br />AUTHORITIES - The information is sought pursuant to The Foreign Service Act of 1980, as amended, and 22 U.S.C. 2669(c).  Your social security number (SSN) maybe used to confirm the identity and employment eligibility of the individual, pursuant to Executive Order 9397, as amended. <br /> <br />PURPOSE - The information solicited on this form will be used to establish your eligibility and qualifications for job vacancies at U.S. Missions. <br /> <br />ROUTINE USES - The information may be shared with other federal agencies to the extent relevant and necessary for that agency to make employment decisions and to a Congressional Office in response to your written request.  More information on Routine Uses can be found in System of Records Notices State-31, Human Resource Records, and OPM/GOVT-5, Recruiting, Examining, and Placement Records. <br /> <br />DISCLOSURE - Disclosure of this information, including your social security number, is voluntary.  Failure to provide the requested information may result in your application not receiving full consideration or being delayed for consideration. <br /> <br />BURDEN - Public reporting burden for this collection of information is estimated to average one (1) hour per response, including time required for searching existing data sources, gathering the necessary documentation, providing the information and/or documents required, and reviewing the final collection.  You do not have to supply this information unless this collection displays a currently valid OMB control number.  If you have comments on the accuracy of this burden estimate and/or recommendations for reducing it, please send them to: HR/OE, SA-22, 1800 G Street, NW, Washington, DC  20006. <br /> <br /></p>
+</form>
+
+
+					   	</div>
+		     	</div>
+		      </div>
+		 </div>
+	</body>
+</html>

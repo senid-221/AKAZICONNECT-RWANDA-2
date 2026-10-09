@@ -1,0 +1,328 @@
+
+<html>
+
+<style>
+    body {
+        background-color: white !important;
+    }
+
+    .body-container {
+        min-height: 100%;
+        flex-direction: column;
+    }
+
+    .content {
+        flex: 1 0 auto;
+    }
+
+    footer {
+        width: 100%;
+        background-color: #f8f9fa;
+        text-align: center;
+        position: relative;
+        bottom: 0;
+        left: 0;
+        padding: 10px 0;
+    }
+</style>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Career Portal">
+    <meta name="author" content="Panache Technohub Ltd">
+    <meta name="keyword" content="Recruitment Portal">
+
+    <title>Login Recruitment Portal</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="/Content/images/favi.png" />
+
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="/Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <link href="/Content/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/Content/Assets/assets/css/_RoundButton.css" />
+    <link href="/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
+    <link href="/Content/DataTables/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="/Content/MaterialUI/assets/css/material-dashboard-new.css" rel="stylesheet" />
+    <link href="/Content/AdminLTE/css/ionicons.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/AdminLTE/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/AdminLTE/css/AdminLTE.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/ladda-themeless.min.css" rel="stylesheet" />
+    <link href="/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/SysreThemes/dynamics-nav-theme.css" rel="stylesheet" />
+    <link href="/Content/Select2Plugin/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" />
+
+</head>
+
+<body class="skin-blue dynamics-nav-skin body-container body-container2">
+
+
+    <div class="container-fluid body-container">
+        
+
+
+
+<style>
+    body {
+        background-color: white !important;
+        background: url(/Content/Assets/assets/img/bg.png);
+        background-position: left;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: 5% 100%;
+        width: 100%;
+        overflow-x: hidden;
+        margin: 0px;
+    }
+    .body-container {
+        /* color: #393939;
+    font-family: lato, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0;
+    background-color: #ffffff !important;
+    padding: 0px;
+    z-index: 0;*/
+        background: url(/Content/Assets/assets/img/bg.png);
+        background-position: left;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: 5% 100%;
+        width: 100%;
+        overflow-x: hidden;
+        margin: 0px;
+    }
+    .body-container2 {
+        /* color: #393939;
+    font-family: lato, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0;
+    background-color: #ffffff !important;
+    padding: 0px;
+    z-index: 0;*/
+        background: url(/Content/Assets/assets/img/bg.png);
+        background-position: right;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: 5% 100%;
+        width: 100%;
+        overflow-x: hidden;
+        margin: 0px;
+        max-width: 1920px;
+    }
+</style>
+
+<br />
+<div class="row" style="margin-bottom:10px">
+	<div class="col-md-4 col-lg-4 col-md-offset-4 col-lg-offset-4">
+		<div class="logo text-center" style="background-color:inherit">
+			<a href="/" class="simple-text">
+				<img  src="/Content/images/lg2.png" class="simple-logo" style="width: 200px; height: auto; " />
+			</a>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-4 col-md-offset-4">
+		<div class="card">
+            <div class="card-header text-center" data-background-color="company_card">
+                <h4 class="title" style="font-family: Lato; font-weight: bold; color: #ffff;">Recruitment Portal Login</h4>
+            </div>
+			<div class="card-content">
+<form action="/Account/Login" class="" method="post"><input name="__RequestVerificationToken" type="hidden" value="e3myaoM_qqU1fk8MgD8X8G9RFk7bEHvWbysIoq4AGJw4TvUHAyRyf9hR_GTWenqG5xYsr4Jd01VU7BjjJ6CyYkbDp4DwMf42jf6FRIxE3aY1" />            <div class="form-group label-floating">
+                <label class="control-label" for="EmailAddress" style="font-weight: semibold; font-family: Lato, sans-serif;">Email Address</label>
+                <input class="form-control text-box single-line" data-val="true" data-val-required="Email Address Required" id="EmailAddress" name="EmailAddress" type="text" value="" />
+                <span class="field-validation-valid text-danger" data-valmsg-for="EmailAddress" data-valmsg-replace="true"></span>
+            </div>
+            <div class="form-group label-floating">
+                <label class="control-label" for="Password" style="font-weight: semibold; font-family: Lato, sans-serif;">Password</label>
+                <input class="form-control text-box single-line password" data-val="true" data-val-required="Password Required" id="Password" name="Password" type="password" value="" />
+                <span class="field-validation-valid text-danger" data-valmsg-for="Password" data-valmsg-replace="true"></span>
+            </div>
+					<div class="form-group text-center">
+						<button class="btn ladda-button" type="submit" data-style="slide-right" data-background-color="company_card">
+                            <span class="ladda-label">
+                                <strong style="font-family: Lato; font-weight: bold;">Login</strong>
+                            </span>
+						</button><br />
+                                 <a href="/Account/SendPasswordResetLink">
+                                     <strong style="font-family: Lato; font-weight: bold;">Forgot Password?</strong>
+                                 </a>
+					</div>
+</form>			</div>
+			<div class="card-footer">
+				<div class="row">
+                    <div class="col-md-12 text-center" data-background-color="login_card">
+                        First time User ? <a href="/Account/Disclaimer"><strong style="font-family: Lato; font-weight: bold;">Create Account Here</strong></a>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+        
+<div class="round-button-container">
+    <a href="/Jobs/Positions" class="round-button" title="Go to Job Positions">
+        <i class="fa fa-arrow-up"></i>
+    </a>
+    <div class="button-label">
+        <small class="fs-4">Check profile</small> <!-- Adjust the size by changing fs-5 to a different value -->
+    </div>
+
+</div>
+
+
+        <hr style="margin:0px" />
+        <footer>
+            <p>
+                <strong>
+                    RwandAir &copy; 2026. |
+                    <i>Powered by <a href="https://panachetechnohub.co.ke/job-openings/" target="_blank">Panache Technohub Limited.</a></i>
+                </strong>
+            </p>
+        </footer>
+    </div>
+
+
+ 
+    <script src="/Scripts/jquery-3.4.1.min.js"></script>
+   
+    <script src="/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="/Scripts/jquery.validate.min.js"></script>
+    <script src="/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="/Scripts/jquery.validate.bootstrap.js"></script>
+    <script src="/Scripts/jquery.blockUI.js"></script>
+    <script src="/Scripts/jquery.slimscroll.min.js"></script>
+    <script src="/Scripts/jquery.searchit.js"></script>
+
+    <script src="/scripts/moment.min.js"></script>
+
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <script src="/Scripts/bootstrap-select.min.js"></script>
+
+
+    <script src="/Scripts/DataTables/jquery.dataTables.min.js"></script>
+
+
+    <script src="/Content/AdminLTE/js/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+    <script src="/Content/AdminLTE/js/plugins/iCheck/icheck.min.js"></script>
+    <script src="/Content/AdminLTE/js/AdminLTE/app.js"></script>
+    <script src="/Content/AdminLTE/js/AdminLTE/dashboard.js"></script>
+
+
+    <script src="/Content/MaterialUI/assets/js/material.min.js"></script>
+    <script src="/Content/MaterialUI/assets/js/arrive.min.js"></script>
+    <script src="/Content/MaterialUI/assets/js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="/Content/MaterialUI/assets/js/bootstrap-notify.js"></script>
+    <script src="/Content/MaterialUI/assets/js/material-dashboard.js?v=1.2.0"></script>
+
+    <script src="/Scripts/Select2Plugin/select2.min.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js' async defer></script>
+    <script src="/scripts/spin.min.js"></script>
+    <script src="/scripts/ladda.min.js"></script>
+    <script src="/scripts/SysreAddons/control-ladda-btn.js"></script>
+    <script src="/Scripts/SysreAddons/custom-alert.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script type="text/javascript">
+
+        var AJAXUrls = {
+            // County & SubCounty
+            GetSubCountyCodes:                      '/Home/GetSubCountyCodes',
+
+            // Academic
+            GETQualifications:                      '/Home/GETQualifications',
+            UploadQualification:                    '/Home/UploadQualification',
+            ModifyAcademicQualificationRecord:      '/Home/ModifyAcademicQualificationRecord',
+            GETQualification:                       '/Home/GETQualification',
+            DeleteAcademicQualificationRecord:      '/Home/DeleteAcademicQualificationRecord',
+
+            // Membership / Certification
+            UploadMembershipCertificate:            '/Home/UploadMembershipCertificate',
+            GetProfessionalCertificates:            '/Home/GetProfessionalCertificates',
+            DeleteMembershipCertification:          '/Home/DeleteMembershipCertification',
+            ModifyMembershipProfessionalCertificate:'/Home/ModifyMembershipProfessionalCertificate',
+            GetProfessionalCertificate:             '/Home/GetProfessionalCertificate',
+
+            // Employment History
+            GetEmploymentHistory:                   '/Home/GetEmploymentHistory',
+            CreateEmploymentHistoryRecord:          '/Home/CreateEmploymentHistoryRecord',
+            GetEmpRecordByLineNo:                   '/Home/GetEmpRecordByLineNo',
+            ModifyEmploymentHistoryRecord:          '/Home/ModifyEmploymentHistoryRecord',
+            DeleteEmploymentHistoryRecord:          '/Home/DeleteEmploymentHistoryRecord',
+
+            // Professional Referees
+            CreateProfessionalReferee:              '/Home/CreateProfessionalReferee',
+            GetProfessionalReferees:                '/Home/GetProfessionalReferees',
+            GETProfessionalReferee:                 '/Home/GETProfessionalReferee',
+            ModifyProfesionalRefereeRecord:         '/Home/ModifyProfesionalRefereeRecord',
+            RemoveProfessionalRefereeRecord:        '/Home/RemoveProfessionalRefereeRecord',
+
+            // Personal Referees
+            CreatePersonalReferee:                  '/Home/CreatePersonalReferee',
+            GetPersonalReferees:                    '/Home/GETPersonalReferees',
+            GETPersonalReferee:                     '/Home/GETPersonalReferee',
+            ModifyPersonalReferee:                  '/Home/ModifyPersonalReferee',
+            DeletePersonalReferee:                  '/Home/DeletePersonalReferee',
+
+            // Professional Levels
+            GetProfessionalLevels:                  '/Home/GetProfessionalLevels',
+            UploadProfessionalLevel:                '/Home/UploadProfessionalLevel',
+            ModifyProfessionalLevel:                '/Home/ModifyProfessionalLevel',
+            DeleteProfessionalLevel:                '/Home/DeleteProfessionalLevel',
+            GetProfessionalLevelsAjax:              '/Home/GetProfessionalLevelsAjax',
+            GetProfessionalLevelAjax:               '/Home/GetProfessionalLevelAjax',
+
+            // Attached Links
+            LoadAttachedLinks:                      '/Home/LoadAttachedLinks',
+            UploadAttachedLink:                     '/Home/UploadAttachedLink',
+            GetAttachedLink:                        '/Home/GetAttachedLink',
+            DeleteAttachedLink:                     '/Home/DeleteAttachedLink',
+
+            // Application Documents (Jobs controller)
+            GetApplicationDocuments:                '/Jobs/GetApplicationDocuments',
+            GetApplicationDocument:                 '/Jobs/GetApplicationDocument',
+            UploadApplicationDocument:              '/Jobs/UploadApplicationDocument'
+        };
+
+        // ── Submit button enable/disable guard ───────────────────────────
+        $("input[type=text]").keyup(function () {
+            $("#submitBtn").prop("disabled", true);
+            $("input[type=text]").each(function () {
+                if (this.value.length > 0) {
+                    $("#submitBtn").prop("disabled", false).removeAttr("disabled");
+                    return false;
+                } else {
+                    $("#submitBtn").attr("disabled", "disabled");
+                }
+            });
+        });
+
+        // ── Select2 init ─────────────────────────────────────────────────
+        $('.selectpicker').selectpicker({
+            liveSearch: true,
+            showSubtext: true
+        });
+
+        // ── Material Icons visibility fix ────────────────────────────────
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll(".material-icons").forEach(function (icon) {
+                icon.classList.remove("d-none");
+            });
+        });
+
+    </script>
+
+
+    
+
+</body>
+</html>

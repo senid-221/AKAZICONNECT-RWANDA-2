@@ -1,0 +1,6 @@
+{
+  "name": "AkaziConnect",
+  "description": "Discover verified job opportunities in Rwanda. Track applications, explore career paths, and find work that moves you.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
