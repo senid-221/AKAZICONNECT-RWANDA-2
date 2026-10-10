@@ -1,8 +1,9 @@
 import React from 'react';
-import { Home, Bookmark, CheckSquare, Sparkles, User } from 'lucide-react';
+import { Home, Bookmark, CheckSquare, Sparkles, User, Shield } from 'lucide-react';
 import { Language, translations } from '../utils/translations';
+import { useAuth } from '../context/AuthContext';
 
-export type NavTab = 'home' | 'saved' | 'applications' | 'tools' | 'profile';
+export type NavTab = 'home' | 'saved' | 'applications' | 'tools' | 'profile' | 'admin';
 
 interface BottomNavProps {
   activeTab: NavTab;
@@ -20,6 +21,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({
   lang,
 }) => {
   const t = translations[lang];
+  const { isAdmin } = useAuth();
 
   const items: { id: NavTab; label: string; icon: React.ReactNode; badge?: number }[] = [
     { id: 'home', label: t.home, icon: <Home className="w-5 h-5" /> },
@@ -39,6 +41,14 @@ export const BottomNav: React.FC<BottomNavProps> = ({
     { id: 'profile', label: t.profileTab, icon: <User className="w-5 h-5" /> },
   ];
 
+  if (isAdmin) {
+    items.push({
+      id: 'admin',
+      label: 'Admin',
+      icon: <Shield className="w-5 h-5 text-[#efbd43]" />,
+    });
+  }
+
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-40 bg-[#fffdf7]/95 backdrop-blur-md border-t border-[#e4e5d9] px-1 sm:px-2 py-1 flex items-center justify-around sm:hidden pb-[calc(0.5rem+env(safe-area-inset-bottom))] shadow-lg">
       {items.map((item) => {
@@ -48,7 +58,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({
             key={item.id}
             type="button"
             onClick={() => onChangeTab(item.id)}
-            className={`relative flex flex-col items-center justify-center py-1 px-1 min-w-[54px] rounded-xl transition-all ${
+            className={`relative flex flex-col items-center justify-center py-1 px-1 min-w-[50px] rounded-xl transition-all ${
               isActive
                 ? 'text-[#174332] font-bold'
                 : 'text-[#596b5e] font-semibold hover:text-[#174332]'

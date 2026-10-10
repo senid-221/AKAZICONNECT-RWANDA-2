@@ -13,7 +13,6 @@ import {
   DollarSign,
   Building,
   Sparkles,
-  ExternalLink,
 } from 'lucide-react';
 
 interface JobCardProps {
@@ -23,6 +22,7 @@ interface JobCardProps {
   onToggleSave: (jobId: string) => void;
   onOpenDetails: (job: Job) => void;
   onOpenCoverLetter?: (job: Job) => void;
+  onApplyJob?: (job: Job) => void;
   lang: Language;
 }
 
@@ -33,6 +33,7 @@ export const JobCard: React.FC<JobCardProps> = ({
   onToggleSave,
   onOpenDetails,
   onOpenCoverLetter,
+  onApplyJob,
   lang,
 }) => {
   const t = translations[lang];
@@ -167,16 +168,21 @@ export const JobCard: React.FC<JobCardProps> = ({
             </button>
           )}
 
-          <a
-            href={job.destinationUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => e.stopPropagation()}
-            className="bg-[#174332] hover:bg-[#102e24] text-white text-xs font-bold py-2 px-3 rounded-xl flex items-center justify-center gap-1 transition-colors shadow-2xs shrink-0"
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              if (onApplyJob) {
+                onApplyJob(job);
+              } else {
+                onOpenDetails(job);
+              }
+            }}
+            className="bg-[#174332] hover:bg-[#102e24] text-[#efbd43] text-xs font-bold py-2 px-3.5 rounded-xl flex items-center justify-center gap-1.5 transition-colors shadow-2xs shrink-0 cursor-pointer"
           >
-            <span>{lang === 'rw' ? 'Saba' : 'Apply'}</span>
-            <ExternalLink className="w-3 h-3 shrink-0" />
-          </a>
+            <Briefcase className="w-3.5 h-3.5 text-[#efbd43] shrink-0" />
+            <span>{lang === 'rw' ? 'Saba (Kwishyura)' : 'Apply & Pay'}</span>
+          </button>
         </div>
       </div>
     </article>

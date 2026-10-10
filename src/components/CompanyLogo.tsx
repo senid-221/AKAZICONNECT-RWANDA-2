@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useAuth } from '../context/AuthContext';
 
 interface CompanyLogoProps {
   company: string;
   size?: 'sm' | 'md' | 'lg' | 'xl';
   className?: string;
+  customLogoUrl?: string;
 }
 
 interface LogoConfig {
@@ -12,7 +14,7 @@ interface LogoConfig {
   alt: string;
 }
 
-// Exact official logo mapping for all 16 Rwandan employers
+// Exact official logo mapping for Rwandan employers
 const OFFICIAL_LOGOS: Record<string, LogoConfig> = {
   rwandair: {
     src: '/logos/rwandair.svg',
@@ -114,6 +116,26 @@ const OFFICIAL_LOGOS: Record<string, LogoConfig> = {
     bgColor: 'bg-white',
     alt: 'Wicloud Official Logo',
   },
+  'bank of kigali': {
+    src: '/logos/bank-of-kigali.svg',
+    bgColor: 'bg-white',
+    alt: 'Bank of Kigali Official Logo',
+  },
+  bk: {
+    src: '/logos/bank-of-kigali.svg',
+    bgColor: 'bg-white',
+    alt: 'Bank of Kigali Official Logo',
+  },
+  mtn: {
+    src: '/logos/mtn-logo.svg',
+    bgColor: 'bg-[#FFCC00]',
+    alt: 'MTN Rwanda Official Logo',
+  },
+  airtel: {
+    src: '/logos/airtel-money.svg',
+    bgColor: 'bg-white',
+    alt: 'Airtel Rwanda Official Logo',
+  },
 };
 
 function getLogoConfig(company: string): LogoConfig | null {
@@ -130,7 +152,9 @@ export const CompanyLogo: React.FC<CompanyLogoProps> = ({
   company,
   size = 'md',
   className = '',
+  customLogoUrl,
 }) => {
+  const { branding } = useAuth();
   const [imageFailed, setImageFailed] = useState(false);
 
   const sizeMap = {
@@ -139,6 +163,33 @@ export const CompanyLogo: React.FC<CompanyLogoProps> = ({
     lg: 'w-14 h-14 sm:w-16 sm:h-16 rounded-2xl p-2',
     xl: 'w-16 h-16 sm:w-20 sm:h-20 rounded-2xl p-2.5',
   };
+
+  // Check admin uploaded custom branding first
+  const companyKey = company.toLowerCase().trim();
+  const dynamicLogo =
+    customLogoUrl ||
+    (branding?.companyLogos &&
+      Object.keys(branding.companyLogos).find((k) => companyKey.includes(k.toLowerCase())) &&
+      branding.companyLogos[
+        Object.keys(branding.companyLogos).find((k) => companyKey.includes(k.toLowerCase()))!
+      ]);
+
+  if (dynamicLogo && !imageFailed) {
+    return (
+      <div
+        className={`${sizeMap[size]} shrink-0 bg-white border border-[#e4e5d9] shadow-2xs flex items-center justify-center overflow-hidden transition-transform duration-200 group-hover:scale-105 ${className}`}
+        title={company}
+      >
+        <img
+          src={dynamicLogo}
+          alt={`${company} Official Logo`}
+          loading="lazy"
+          className="w-full h-full object-contain select-none"
+          onError={() => setImageFailed(true)}
+        />
+      </div>
+    );
+  }
 
   const logoConfig = getLogoConfig(company);
 

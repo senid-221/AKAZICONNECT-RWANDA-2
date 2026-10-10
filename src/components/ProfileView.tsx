@@ -30,6 +30,9 @@ export const ProfileView: React.FC<ProfileViewProps> = ({
   const t = translations[lang];
 
   const [profile, setProfile] = useState<UserProfile>({
+    id: 'usr-local',
+    role: 'seeker',
+    status: 'active',
     name: 'Amara Mukamana',
     headline: 'IT Support & Systems Specialist',
     location: 'Kigali, Rwanda',
@@ -270,7 +273,7 @@ export const ProfileView: React.FC<ProfileViewProps> = ({
 
           <div className="pt-2 border-t border-[#f0f0e9]">
             <span className="block text-[11px] font-bold uppercase tracking-wider text-[#596b5e] mb-2">
-              Browser Storage & Privacy
+              Data Management & Privacy
             </span>
 
             <div className="flex flex-wrap gap-2.5">
@@ -280,7 +283,7 @@ export const ProfileView: React.FC<ProfileViewProps> = ({
                 className="text-xs font-bold px-3.5 py-2 rounded-xl bg-white border border-[#d9ded4] text-[#174332] hover:bg-[#e9eee4] transition-colors inline-flex items-center gap-1.5"
               >
                 <Download className="w-3.5 h-3.5" />
-                <span>Export Saved & Applications Backup</span>
+                <span>Export Applications & Profile Data</span>
               </button>
 
               <button
@@ -289,7 +292,7 @@ export const ProfileView: React.FC<ProfileViewProps> = ({
                 className="text-xs font-bold px-3.5 py-2 rounded-xl bg-[#fae5db] text-[#8a422d] hover:bg-[#f6d2c4] transition-colors inline-flex items-center gap-1.5"
               >
                 <Trash2 className="w-3.5 h-3.5" />
-                <span>Reset Local Bookmarks</span>
+                <span>Reset Saved Bookmarks</span>
               </button>
             </div>
           </div>

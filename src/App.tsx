@@ -13,6 +13,11 @@ import { ProfileView } from './components/ProfileView';
 import { SourceBoards } from './components/SourceBoards';
 import { BottomNav, NavTab } from './components/BottomNav';
 import { NotificationModal } from './components/NotificationModal';
+import { AuthModal } from './components/AuthModal';
+import { ApplicationPaymentModal } from './components/ApplicationPaymentModal';
+import { UserDashboardView } from './components/UserDashboardView';
+import { AdminDashboardView } from './components/AdminDashboardView';
+import { useAuth } from './context/AuthContext';
 import {
   Search,
   Filter,
@@ -32,9 +37,11 @@ import {
   Smartphone,
   Monitor,
   CheckCircle2,
+  Shield,
 } from 'lucide-react';
 
 export default function App() {
+  const { user, profile, isAdmin, token } = useAuth();
   const [lang, setLang] = useState<Language>('en');
   const [viewMode, setViewMode] = useState<'responsive' | 'mobile-frame'>('responsive');
   const [activeTab, setActiveTab] = useState<NavTab>('home');
@@ -47,8 +54,40 @@ export default function App() {
   // Modals state
   const [detailJob, setDetailJob] = useState<Job | null>(null);
   const [coverLetterJob, setCoverLetterJob] = useState<Job | null>(null);
+  const [applyJob, setApplyJob] = useState<Job | null>(null);
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+  const [authInitialMode, setAuthInitialMode] = useState<'login' | 'register'>('login');
   const [toast, setToast] = useState<string | null>(null);
+
+  // Live dynamic jobs (synced with DB)
+  const [liveJobs, setLiveJobs] = useState<Job[]>(jobsData);
+
+  useEffect(() => {
+    fetch('/api/jobs')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.jobs && data.jobs.length > 0) {
+          setLiveJobs(data.jobs);
+        }
+      })
+      .catch((e) => console.warn('Using local jobs data', e));
+  }, []);
+
+  // In-app Visitor Analytics Tracking
+  const trackInAppEvent = (type: string, target?: string) => {
+    try {
+      fetch('/api/analytics/track', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type, target, path: window.location.pathname }),
+      }).catch(() => {});
+    } catch {}
+  };
+
+  useEffect(() => {
+    trackInAppEvent('visit', 'App Opened');
+  }, []);
 
   // Local storage bookmarks
   const [savedJobIds, setSavedJobIds] = useState<Set<string>>(() => {
@@ -67,15 +106,16 @@ export default function App() {
       const matchSlug = path.match(/\/apply\/([^/]+)/);
       if (matchSlug && matchSlug[1]) {
         const slug = matchSlug[1];
-        const targetJob = jobsData.find((j) => j.slug === slug || j.id === slug);
+        const targetJob = liveJobs.find((j) => j.slug === slug || j.id === slug);
         if (targetJob) {
           setDetailJob(targetJob);
+          trackInAppEvent('vanity_url_view', targetJob.title);
         }
       }
     }
-  }, []);
+  }, [liveJobs]);
 
-  // Local storage applications
+  // Local storage applications fallback
   const [applications, setApplications] = useState<Record<string, ApplicationRecord>>(() => {
     try {
       const stored = localStorage.getItem('akazi-applications');
@@ -87,10 +127,11 @@ export default function App() {
 
   const showToast = (message: string) => {
     setToast(message);
-    setTimeout(() => setToast(null), 2600);
+    setTimeout(() => setToast(null), 2800);
   };
 
   const handleToggleSave = (jobId: string) => {
+    trackInAppEvent('bookmark_click', jobId);
     setSavedJobIds((prev) => {
       const next = new Set(prev);
       if (next.has(jobId)) {
@@ -98,7 +139,7 @@ export default function App() {
         showToast(lang === 'rw' ? 'Byavuye mu byabitswe' : 'Removed from saved jobs');
       } else {
         next.add(jobId);
-        showToast(lang === 'rw' ? 'Byabitswe neza' : 'Saved to your browser shortlist');
+        showToast(lang === 'rw' ? 'Byabitswe neza' : 'Saved to your shortlist');
       }
       try {
         localStorage.setItem('akazi-saved', JSON.stringify(Array.from(next)));
@@ -112,6 +153,7 @@ export default function App() {
     status: ApplicationStatus,
     notes?: string
   ) => {
+    trackInAppEvent('status_change', `${jobId}:${status}`);
     setApplications((prev) => {
       const next = { ...prev };
       if (status === 'archived') {
@@ -119,6 +161,7 @@ export default function App() {
         showToast(lang === 'rw' ? 'Byakuwe mu bwanditswe' : 'Removed from application tracker');
       } else {
         next[jobId] = {
+          id: next[jobId]?.id || `local-app-${jobId}`,
           jobId,
           status,
           appliedDate: next[jobId]?.appliedDate || new Date().toISOString(),
@@ -142,14 +185,14 @@ export default function App() {
   };
 
   const handleClearData = () => {
-    if (window.confirm('Reset all saved bookmarks and application records stored locally?')) {
+    if (window.confirm('Reset all saved bookmarks and application records?')) {
       setSavedJobIds(new Set());
       setApplications({});
       try {
         localStorage.removeItem('akazi-saved');
         localStorage.removeItem('akazi-applications');
       } catch {}
-      showToast('Local application data reset');
+      showToast('Application data reset');
     }
   };
 
@@ -167,7 +210,7 @@ export default function App() {
   const filteredJobs = useMemo(() => {
     const q = searchQuery.trim().toLowerCase();
 
-    return jobsData.filter((job) => {
+    return liveJobs.filter((job) => {
       // Search text
       if (q) {
         const hay = [
@@ -214,7 +257,7 @@ export default function App() {
       return true;
     });
   }, [
-    jobsData,
+    liveJobs,
     searchQuery,
     selectedLocation,
     selectedCategory,
@@ -241,13 +284,18 @@ export default function App() {
         }
         onOpenNotifications={() => setIsNotificationsOpen(true)}
         onOpenProfile={() => setActiveTab('profile')}
+        onOpenAdmin={() => setActiveTab('admin')}
+        onOpenAuth={() => {
+          setAuthInitialMode('login');
+          setIsAuthModalOpen(true);
+        }}
         onNavigateHome={() => setActiveTab('home')}
       />
 
       {/* Main Body */}
       <div className="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 py-5 sm:py-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
-          {/* Desktop Left Rail Navigation (Tablet / Desktop responsive) */}
+          {/* Desktop Left Rail Navigation */}
           <aside className="hidden lg:block lg:col-span-3 sticky top-20 bg-[#eeefe5] border border-[#e2e5d9] rounded-3xl p-5 space-y-6">
             <div>
               <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#829084]">
@@ -256,7 +304,10 @@ export default function App() {
               <nav className="mt-3 space-y-1">
                 <button
                   type="button"
-                  onClick={() => setActiveTab('home')}
+                  onClick={() => {
+                    setActiveTab('home');
+                    trackInAppEvent('tab_click', 'home');
+                  }}
                   className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all ${
                     activeTab === 'home'
                       ? 'bg-[#174332] text-white shadow-xs'
@@ -269,7 +320,10 @@ export default function App() {
 
                 <button
                   type="button"
-                  onClick={() => setActiveTab('saved')}
+                  onClick={() => {
+                    setActiveTab('saved');
+                    trackInAppEvent('tab_click', 'saved');
+                  }}
                   className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all ${
                     activeTab === 'saved'
                       ? 'bg-[#174332] text-white shadow-xs'
@@ -289,7 +343,10 @@ export default function App() {
 
                 <button
                   type="button"
-                  onClick={() => setActiveTab('applications')}
+                  onClick={() => {
+                    setActiveTab('applications');
+                    trackInAppEvent('tab_click', 'applications');
+                  }}
                   className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all ${
                     activeTab === 'applications'
                       ? 'bg-[#174332] text-white shadow-xs'
@@ -309,7 +366,10 @@ export default function App() {
 
                 <button
                   type="button"
-                  onClick={() => setActiveTab('tools')}
+                  onClick={() => {
+                    setActiveTab('tools');
+                    trackInAppEvent('tab_click', 'tools');
+                  }}
                   className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all ${
                     activeTab === 'tools'
                       ? 'bg-[#174332] text-white shadow-xs'
@@ -322,7 +382,10 @@ export default function App() {
 
                 <button
                   type="button"
-                  onClick={() => setActiveTab('profile')}
+                  onClick={() => {
+                    setActiveTab('profile');
+                    trackInAppEvent('tab_click', 'profile');
+                  }}
                   className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all ${
                     activeTab === 'profile'
                       ? 'bg-[#174332] text-white shadow-xs'
@@ -332,6 +395,24 @@ export default function App() {
                   <User className="w-4 h-4" />
                   <span>{t.profileTab}</span>
                 </button>
+
+                {isAdmin && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setActiveTab('admin');
+                      trackInAppEvent('tab_click', 'admin');
+                    }}
+                    className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all ${
+                      activeTab === 'admin'
+                        ? 'bg-[#174332] text-[#efbd43] shadow-xs'
+                        : 'text-[#174332] bg-[#eef3eb] hover:bg-[#e0e8dc]'
+                    }`}
+                  >
+                    <Shield className="w-4 h-4 text-[#efbd43]" />
+                    <span>Admin Panel</span>
+                  </button>
+                )}
               </nav>
             </div>
 
@@ -348,18 +429,29 @@ export default function App() {
 
             {/* Candidate Quick Mini card */}
             <div
-              onClick={() => setActiveTab('profile')}
+              onClick={() => {
+                if (!user) {
+                  setIsAuthModalOpen(true);
+                } else {
+                  setActiveTab('profile');
+                }
+              }}
               className="flex items-center gap-3 pt-3 border-t border-[#dfe2d7] cursor-pointer group"
             >
               <div className="w-9 h-9 rounded-xl bg-[#174332] text-[#fffdf7] font-extrabold text-xs flex items-center justify-center shrink-0">
-                AM
+                {(profile?.name || user?.email || 'AM')
+                  .split(' ')
+                  .map((n) => n[0])
+                  .join('')
+                  .slice(0, 2)
+                  .toUpperCase()}
               </div>
               <div className="min-w-0">
                 <span className="block text-xs font-bold text-[#173b2d] group-hover:underline truncate">
-                  Amara M.
+                  {profile?.name || (user ? user.email : 'Sign In')}
                 </span>
                 <span className="block text-[10px] text-[#596b5e] truncate">
-                  Job seeker · Kigali
+                  {user ? (isAdmin ? 'Admin Officer' : 'Job seeker · Kigali') : 'Tap to sign in'}
                 </span>
               </div>
             </div>
@@ -384,7 +476,7 @@ export default function App() {
                       {t.heroTitle}
                     </h1>
                     <p className="text-xs sm:text-sm text-[#fffdf7]/85 max-w-md">
-                      {t.heroSubtitle}
+                      {liveJobs.length} verified sourced openings checked against official Rwandan employers.
                     </p>
 
                     {/* Integrated Search Box */}
@@ -394,7 +486,10 @@ export default function App() {
                         <input
                           type="text"
                           value={searchQuery}
-                          onChange={(e) => setSearchQuery(e.target.value)}
+                          onChange={(e) => {
+                            setSearchQuery(e.target.value);
+                            trackInAppEvent('search_input', e.target.value);
+                          }}
                           placeholder={t.searchPlaceholder}
                           className="min-w-0 flex-1 text-xs sm:text-sm text-[#173b2d] px-2 sm:px-3 py-2 bg-transparent focus:outline-none placeholder:text-[#799083]"
                         />
@@ -402,14 +497,15 @@ export default function App() {
                           <button
                             type="button"
                             onClick={() => setSearchQuery('')}
-                            className="p-1 text-[#799083] hover:text-[#173b2d] mr-1"
+                            className="p-1.5 text-[#799083] hover:text-[#173b2d]"
                           >
-                            <X className="w-3.5 h-3.5" />
+                            <X className="w-4 h-4" />
                           </button>
                         )}
                         <button
                           type="button"
-                          className="bg-[#efbd43] hover:bg-[#e0b03a] text-[#173b2d] font-bold text-xs sm:text-sm px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl shrink-0 transition-colors"
+                          onClick={() => trackInAppEvent('search_click', searchQuery)}
+                          className="bg-[#174332] hover:bg-[#102e24] text-[#fffdf7] text-xs font-bold px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl transition-colors shrink-0"
                         >
                           {t.findJobsBtn}
                         </button>
@@ -418,85 +514,22 @@ export default function App() {
                   </div>
                 </section>
 
-                {/* Verified Snapshot Notice Bar */}
-                <div className="p-3.5 sm:p-4 bg-[#fff7dc] border border-[#fae09b] rounded-2xl flex items-start sm:items-center justify-between gap-3 text-xs text-[#714f15]">
-                  <div className="flex items-start sm:items-center gap-2.5">
-                    <AlertCircle className="w-4 h-4 text-[#efbd43] shrink-0 mt-0.5 sm:mt-0" />
-                    <div>
-                      <strong>{t.snapshotNoticeTitle}.</strong> {t.snapshotNoticeBody}
-                    </div>
-                  </div>
-                  <button
-                    onClick={() => setIsNotificationsOpen(true)}
-                    className="text-[11px] font-bold underline whitespace-nowrap shrink-0 hover:text-[#173b2d]"
-                  >
-                    View details
-                  </button>
-                </div>
-
-                {/* Explore Categories / Sectors Horizontal Scroll */}
-                <section className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <h2 className="font-display text-xl font-bold text-[#173b2d]">
-                      {t.explorePath}
-                    </h2>
-                    <span className="text-xs text-[#596b5e]">
-                      {jobsData.length} roles total
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
-                    {CATEGORIES.map((cat) => {
-                      const isActive = selectedCategory === cat;
-                      const count =
-                        cat === 'All roles'
-                          ? jobsData.length
-                          : jobsData.filter((j) => j.categories.includes(cat)).length;
-
-                      return (
-                        <button
-                          key={cat}
-                          onClick={() => setSelectedCategory(cat)}
-                          className={`shrink-0 text-xs px-3.5 py-2 rounded-xl font-semibold transition-all flex items-center gap-1.5 ${
-                            isActive
-                              ? 'bg-[#174332] text-white shadow-xs'
-                              : 'bg-[#fffdf7] border border-[#e4e5d9] text-[#416153] hover:bg-[#e9eee4]'
-                          }`}
-                        >
-                          <span>{cat}</span>
-                          <span
-                            className={`text-[10px] px-1.5 py-0.2 rounded-md ${
-                              isActive
-                                ? 'bg-white/20 text-white'
-                                : 'bg-[#e9eee4] text-[#596b5e]'
-                            }`}
-                          >
-                            {count}
-                          </span>
-                        </button>
-                      );
-                    })}
-                  </div>
-                </section>
-
-                {/* Feed Controls & Quick Filter Pills */}
+                {/* Filter and Job Feed Controls */}
                 <section className="space-y-4">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <div>
-                      <h2 className="font-display text-2xl font-bold text-[#173b2d]">
+                      <h2 className="font-display text-xl sm:text-2xl font-bold text-[#173b2d]">
                         {t.verifiedRoles}
                       </h2>
-                      <p className="text-xs text-[#596b5e] mt-0.5">
-                        {filteredJobs.length} {filteredJobs.length === 1 ? 'role' : 'roles'} found
-                        {selectedLocation !== 'All locations' ? ` in ${selectedLocation}` : ''}
-                        {selectedCategory !== 'All roles' ? ` • ${selectedCategory}` : ''}
-                      </p>
+                      <span className="text-xs text-[#596b5e]">
+                        Showing {filteredJobs.length} matching positions across Rwanda
+                      </span>
                     </div>
 
-                    <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none touch-pan-x">
+                    <div className="flex items-center gap-2 overflow-x-auto pb-1 sm:pb-0">
                       <button
                         onClick={() => setIsFilterPanelOpen(!isFilterPanelOpen)}
-                        className={`text-xs font-bold px-3 py-2 rounded-xl border flex items-center gap-1.5 transition-colors shrink-0 ${
+                        className={`flex items-center gap-1.5 text-xs font-bold px-3 py-2 rounded-xl border transition-colors shrink-0 ${
                           isFilterPanelOpen || activeFiltersCount > 0
                             ? 'bg-[#174332] text-white border-[#174332]'
                             : 'bg-[#fffdf7] border-[#e4e5d9] text-[#416153] hover:bg-[#e9eee4]'
@@ -628,8 +661,18 @@ export default function App() {
                           isSaved={savedJobIds.has(job.id)}
                           application={applications[job.id]}
                           onToggleSave={handleToggleSave}
-                          onOpenDetails={(j) => setDetailJob(j)}
-                          onOpenCoverLetter={(j) => setCoverLetterJob(j)}
+                          onOpenDetails={(j) => {
+                            trackInAppEvent('job_details_view', j.title);
+                            setDetailJob(j);
+                          }}
+                          onOpenCoverLetter={(j) => {
+                            trackInAppEvent('cover_letter_open', j.title);
+                            setCoverLetterJob(j);
+                          }}
+                          onApplyJob={(j) => {
+                            trackInAppEvent('apply_fee_portal_open', j.title);
+                            setApplyJob(j);
+                          }}
                           lang={lang}
                         />
                       ))}
@@ -653,7 +696,7 @@ export default function App() {
                     {t.savedTab}
                   </h1>
                   <p className="text-xs sm:text-sm text-[#596b5e] mt-1">
-                    Roles you bookmarked that remain open today. Stored in your local device storage.
+                    Roles you bookmarked that remain open today. Readily organized for review and application.
                   </p>
                 </div>
 
@@ -687,6 +730,7 @@ export default function App() {
                         onToggleSave={handleToggleSave}
                         onOpenDetails={(j) => setDetailJob(j)}
                         onOpenCoverLetter={(j) => setCoverLetterJob(j)}
+                        onApplyJob={(j) => setApplyJob(j)}
                         lang={lang}
                       />
                     ))}
@@ -700,7 +744,7 @@ export default function App() {
             {/* TAB 3: APPLICATIONS TRACKER */}
             {activeTab === 'applications' && (
               <ApplicationTracker
-                jobs={jobsData}
+                jobs={liveJobs}
                 applications={applications}
                 onOpenDetails={(j) => setDetailJob(j)}
                 onUpdateStatus={handleUpdateApplication}
@@ -712,19 +756,26 @@ export default function App() {
             {/* TAB 4: CAREER TOOLS */}
             {activeTab === 'tools' && (
               <CareerTools
-                jobs={jobsData}
+                jobs={liveJobs}
                 onOpenCoverLetterBuilder={(j) => setCoverLetterJob(j)}
                 lang={lang}
               />
             )}
 
-            {/* TAB 5: PROFILE VIEW */}
+            {/* TAB 5: PROFILE VIEW / USER DASHBOARD */}
             {activeTab === 'profile' && (
-              <ProfileView
-                applications={applications}
-                savedJobIds={savedJobIds}
-                onClearData={handleClearData}
+              <UserDashboardView
                 lang={lang}
+                onNavigateJobs={() => setActiveTab('home')}
+                onOpenAuth={() => setIsAuthModalOpen(true)}
+              />
+            )}
+
+            {/* TAB 6: ADMIN DASHBOARD */}
+            {activeTab === 'admin' && (
+              <AdminDashboardView
+                lang={lang}
+                onNavigateHome={() => setActiveTab('home')}
               />
             )}
           </main>
@@ -736,6 +787,7 @@ export default function App() {
         activeTab={activeTab}
         onChangeTab={(tab) => {
           setActiveTab(tab);
+          trackInAppEvent('bottom_nav_click', tab);
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }}
         savedCount={savedJobIds.size}
@@ -756,7 +808,23 @@ export default function App() {
           setDetailJob(null);
           setCoverLetterJob(j);
         }}
+        onApplyJob={(j) => {
+          setDetailJob(null);
+          setApplyJob(j);
+        }}
         lang={lang}
+      />
+
+      <ApplicationPaymentModal
+        job={applyJob}
+        isOpen={!!applyJob}
+        onClose={() => setApplyJob(null)}
+        lang={lang}
+        onSuccess={(appId, ref) => {
+          showToast(`Application ${ref} confirmed and submitted!`);
+          trackInAppEvent('application_submitted', ref);
+          setActiveTab('profile');
+        }}
       />
 
       <CoverLetterModal
@@ -770,6 +838,16 @@ export default function App() {
         isOpen={isNotificationsOpen}
         onClose={() => setIsNotificationsOpen(false)}
         lang={lang}
+      />
+
+      <AuthModal
+        isOpen={isAuthModalOpen}
+        onClose={() => setIsAuthModalOpen(false)}
+        lang={lang}
+        initialMode={authInitialMode}
+        onSuccess={() => {
+          showToast('Welcome to your AkaziConnect workspace!');
+        }}
       />
 
       {/* Toast popup */}
@@ -806,7 +884,7 @@ export default function App() {
           {/* Dynamic Island / Speaker */}
           <div className="absolute top-5 left-1/2 -translate-x-1/2 w-28 h-5 bg-black rounded-full z-50 flex items-center justify-center">
             <div className="w-2.5 h-2.5 rounded-full bg-[#18231e] mr-2" />
-            <div className="w-2 h-2 rounded-full bg-[#143224]" />
+            <div className="w-2.5 h-2.5 rounded-full bg-[#143224]" />
           </div>
 
           {/* Inner Phone Screen */}

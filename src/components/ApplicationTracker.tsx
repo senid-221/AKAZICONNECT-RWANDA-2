@@ -59,13 +59,13 @@ export const ApplicationTracker: React.FC<ApplicationTrackerProps> = ({
       {/* Header */}
       <div>
         <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#9e7940]">
-          Local Application Manager
+          Candidate Application Manager
         </span>
         <h1 className="font-display text-3xl font-bold text-[#173b2d] mt-1">
           {t.trackerTab}
         </h1>
         <p className="text-xs sm:text-sm text-[#596b5e] mt-1">
-          Track roles you submitted on official employer portals. All records remain safely stored in your browser.
+          Track your active applications, interview milestones, and official employer updates in one dashboard.
         </p>
       </div>
 
@@ -212,7 +212,7 @@ export const ApplicationTracker: React.FC<ApplicationTrackerProps> = ({
                   onClick={() => onOpenDetails(job)}
                   className="text-xs font-bold text-[#174332] hover:underline"
                 >
-                  View Details & Links →
+                  View Job Details →
                 </button>
               </div>
             </div>

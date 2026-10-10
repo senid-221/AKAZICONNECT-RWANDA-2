@@ -5,12 +5,10 @@ import { Language, translations } from '../utils/translations';
 import { CompanyLogo } from './CompanyLogo';
 import {
   X,
-  ExternalLink,
   MapPin,
   Briefcase,
   CheckCircle2,
   Calendar,
-  AlertCircle,
   FileText,
   Share2,
   Bookmark,
@@ -27,6 +25,7 @@ interface JobDetailModalProps {
   application?: ApplicationRecord;
   onUpdateApplication: (jobId: string, status: ApplicationStatus, notes?: string) => void;
   onOpenCoverLetterBuilder: (job: Job) => void;
+  onApplyJob?: (job: Job) => void;
   lang: Language;
 }
 
@@ -39,6 +38,7 @@ export const JobDetailModal: React.FC<JobDetailModalProps> = ({
   application,
   onUpdateApplication,
   onOpenCoverLetterBuilder,
+  onApplyJob,
   lang,
 }) => {
   if (!isOpen || !job) return null;
@@ -83,7 +83,7 @@ export const JobDetailModal: React.FC<JobDetailModalProps> = ({
     'mark-lime': 'bg-[#e2eecf] text-[#4d6325]',
     'mark-rose': 'bg-[#f4dde2] text-[#7a414f]',
   };
-  const markClasses = markColorMap[job.markClass] || 'bg-[#d7e4d4] text-[#174332]';
+  const markClasses = (job.markClass && markColorMap[job.markClass]) || 'bg-[#d7e4d4] text-[#174332]';
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-black/60 backdrop-blur-xs overflow-y-auto animate-fade-in">
@@ -192,32 +192,42 @@ export const JobDetailModal: React.FC<JobDetailModalProps> = ({
             </div>
           </div>
 
-          {/* Quick Action Buttons */}
+          {/* Quick Action Buttons: Platform Application & Fee Gateway */}
           <div className="space-y-2.5">
             <div className="flex flex-col sm:flex-row gap-2.5">
-              <a
-                href={job.destinationUrl}
-                target={job.destinationUrl.startsWith('mailto:') ? undefined : '_blank'}
-                rel={job.destinationUrl.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
-                onClick={() => {
-                  if (!application) {
-                    onUpdateApplication(job.id, 'applied');
-                  }
-                }}
-                className="flex-1 bg-[#174332] hover:bg-[#102e24] text-[#fffdf7] font-bold text-sm px-5 py-3.5 rounded-xl flex items-center justify-center gap-2 transition-transform hover:-translate-y-0.5 shadow-sm text-center"
-              >
-                <span>{job.applyText || t.applyExternal}</span>
-                <ExternalLink className="w-4 h-4 shrink-0" />
-              </a>
+              {onApplyJob && (
+                <button
+                  type="button"
+                  onClick={() => onApplyJob(job)}
+                  className="flex-1 bg-[#174332] hover:bg-[#102e24] text-[#efbd43] font-bold text-sm px-6 py-4 rounded-xl flex items-center justify-center gap-2.5 transition-transform hover:-translate-y-0.5 shadow-md text-center cursor-pointer"
+                >
+                  <Briefcase className="w-5 h-5 text-[#efbd43]" />
+                  <span>
+                    {lang === 'rw'
+                      ? 'Saba Umwanya (Kwishura Amafaranga & Kohereza)'
+                      : 'Apply for Position (Pay Fee & Submit Application)'}
+                  </span>
+                </button>
+              )}
 
               <button
                 type="button"
                 onClick={() => onOpenCoverLetterBuilder(job)}
-                className="flex-1 bg-[#efbd43] hover:bg-[#e0b03a] text-[#173b2d] font-bold text-sm px-4 py-3.5 rounded-xl flex items-center justify-center gap-2 transition-transform hover:-translate-y-0.5 shadow-sm text-center"
+                className="bg-[#efbd43] hover:bg-[#e0b03a] text-[#173b2d] font-bold text-sm px-5 py-4 rounded-xl flex items-center justify-center gap-2 transition-transform hover:-translate-y-0.5 shadow-sm text-center sm:w-auto cursor-pointer"
               >
                 <Sparkles className="w-4 h-4 shrink-0 text-[#173b2d]" />
-                <span>{lang === 'rw' ? 'Tegura Ibaruwa (AI)' : 'Tailor Cover Letter'}</span>
+                <span>{lang === 'rw' ? 'Tegura Ibaruwa (AI)' : 'Cover Letter AI'}</span>
               </button>
+            </div>
+
+            {/* Mandatory Fee & Anti-Bypass Notice */}
+            <div className="p-3 bg-[#eef4eb] border border-[#cbdac5] rounded-xl flex items-center gap-2 text-xs text-[#174332]">
+              <span className="font-bold shrink-0">🔒 Required Step:</span>
+              <span className="leading-snug">
+                {lang === 'rw'
+                  ? 'Abasaba bose basabwa kwishyura amafaranga yo gutunganya ubusabe (Application Fee) binyuze kuri MoMo, Airtel, cyangwa Banki mbere yo kwakirwa n’umukoresha.'
+                  : 'All applicants must submit through the platform and complete the verification fee via MTN MoMo, Airtel Money, or Bank Transfer to ensure direct employer delivery.'}
+              </span>
             </div>
           </div>
 
@@ -279,17 +289,6 @@ export const JobDetailModal: React.FC<JobDetailModalProps> = ({
             </div>
           )}
 
-          {/* How to Apply */}
-          <div className="p-4 bg-[#f8f9f5] border border-[#e4e5d9] rounded-2xl space-y-2">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-[#596b5e] flex items-center gap-1.5">
-              <AlertCircle className="w-4 h-4 text-[#efbd43]" />
-              Submission Instructions
-            </h3>
-            <p className="text-xs sm:text-sm text-[#173b2d] leading-relaxed">
-              {job.applyInstructions}
-            </p>
-          </div>
-
           {/* Dates & Source Audit */}
           <div className="border-t border-[#eceee5] pt-4 space-y-3">
             <h3 className="text-xs font-bold uppercase tracking-wider text-[#596b5e]">
@@ -311,30 +310,25 @@ export const JobDetailModal: React.FC<JobDetailModalProps> = ({
             </div>
 
             <div className="flex items-center justify-between text-xs pt-1">
-              <a
-                href={job.sourceUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#174332] font-bold hover:underline inline-flex items-center gap-1"
-              >
-                <span>{t.originalListing}</span>
-                <ExternalLink className="w-3 h-3" />
-              </a>
+              <span className="text-[#174332] font-semibold inline-flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#174332]" />
+                <span>Verified Rwandan Employer Listing</span>
+              </span>
               <span className="text-[#596b5e]">Akazi ID: {job.id}</span>
             </div>
           </div>
 
-          {/* Local Application Tracker Controls */}
+          {/* Application Status Tracker */}
           <div className="p-4 bg-[#fff7dc] border border-[#fae09b] rounded-2xl space-y-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-5 h-5 text-[#174332]" />
                 <span className="font-bold text-xs uppercase tracking-wider text-[#173b2d]">
-                  My Local Application Tracker
+                  Application Status Tracker
                 </span>
               </div>
-              <span className="text-[11px] font-semibold text-[#7a591a]">
-                Saved locally on this device
+              <span className="text-[11px] font-semibold text-[#174332] bg-[#eef4eb] px-2.5 py-0.5 rounded-full border border-[#cbdac5]">
+                Candidate Record
               </span>
             </div>
 

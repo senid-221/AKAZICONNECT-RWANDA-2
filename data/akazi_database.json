@@ -1,0 +1,1162 @@
+{
+  "users": [
+    {
+      "id": "usr-admin-01",
+      "email": "admin@akazi.rw",
+      "passwordHash": "2a910f6cfd55fdd138b9d5140e86b13f0abed0eb3364a7c0637fe682fcad1f02658f0f06d56993e2a146acbecde82cb55b02f538195ae104b3ae6410d4261dbf",
+      "role": "admin",
+      "status": "active",
+      "name": "Claude Nshimiyimana",
+      "headline": "Lead Platform Administrator & Rwanda Employment Director",
+      "location": "Kigali, Rwanda",
+      "district": "Gasabo",
+      "phone": "+250 788 990 011",
+      "education": "Master of Public Administration & Information Systems, University of Rwanda",
+      "experienceYears": 9,
+      "skills": [
+        "Employment Platform Governance",
+        "Rwandan Labour Law",
+        "Recruitment Verification",
+        "Data Privacy"
+      ],
+      "languages": [
+        "Kinyarwanda",
+        "English",
+        "French"
+      ],
+      "bio": "Oversees platform operations, verified vacancies from official employers across Rwanda, and ensures transparent application processing.",
+      "createdAt": "2026-10-10T09:13:08.522Z",
+      "updatedAt": "2026-10-10T09:13:08.522Z"
+    }
+  ],
+  "cvs": [],
+  "jobs": [
+    {
+      "id": "ra-rn519",
+      "slug": "database-engineer-rwandair",
+      "title": "Database Engineer",
+      "company": "RwandAir",
+      "mark": "RA",
+      "markClass": "mark-teal",
+      "location": "Rwanda",
+      "categories": [
+        "Tech & digital"
+      ],
+      "engagement": "Permanent",
+      "minSalary": null,
+      "maxSalary": null,
+      "salaryLabel": "Salary not disclosed",
+      "published": "2026-10-06",
+      "deadline": "2026-10-20",
+      "sourceUrl": "https://erecruitment.rwandair.com/Home/Moreinfo/RN000519",
+      "destinationUrl": "https://erecruitment.rwandair.com/Jobs/NewApplication?employeeRequisitionNo=RN000519",
+      "applyText": "Apply on RwandAir portal",
+      "applyInstructions": "Apply directly through RwandAir’s recruitment portal.",
+      "experience": "4 years’ experience, as listed in the RwandAir vacancies table.",
+      "summary": "Permanent opening with RwandAir in Rwanda. The checked vacancies table lists 4 years of experience; no additional requirements are summarized here.",
+      "requirementsNote": "See RwandAir’s official role page for complete criteria; this card includes only the verified experience level.",
+      "district": "Kigali (Kicukiro/Airport)",
+      "sector": "Aviation & Technology",
+      "rwfSalaryEst": "1,400,000 - 2,400,000 RWF / month",
+      "workMode": "On-site",
+      "keySkills": [
+        "Systems Architecture",
+        "High Availability",
+        "Database Operations",
+        "Security"
+      ],
+      "status": "published",
+      "isVerified": true,
+      "verifiedAt": "2026-10-08"
+    },
+    {
+      "id": "ra-rn520",
+      "slug": "data-engineer-rwandair",
+      "title": "Data Engineer",
+      "company": "RwandAir",
+      "mark": "RA",
+      "markClass": "mark-teal",
+      "location": "Rwanda",
+      "categories": [
+        "Tech & digital"
+      ],
+      "engagement": "Permanent",
+      "minSalary": null,
+      "maxSalary": null,
+      "salaryLabel": "Salary not disclosed",
+      "published": "2026-10-06",
+      "deadline": "2026-10-20",
+      "sourceUrl": "https://erecruitment.rwandair.com/Home/Moreinfo/RN000520",
+      "destinationUrl": "https://erecruitment.rwandair.com/Jobs/NewApplication?employeeRequisitionNo=RN000520",
+      "applyText": "Apply on RwandAir portal",
+      "applyInstructions": "Apply directly through RwandAir’s recruitment portal.",
+      "experience": "3 years’ experience, as listed in the RwandAir vacancies table.",
+      "summary": "Permanent opening with RwandAir in Rwanda. The checked vacancies table lists 3 years of experience; no additional requirements are summarized here.",
+      "requirementsNote": "See RwandAir’s official role page for complete criteria; this card includes only the verified experience level.",
+      "district": "Kigali (Kicukiro/Airport)",
+      "sector": "Aviation & Technology",
+      "rwfSalaryEst": "1,400,000 - 2,400,000 RWF / month",
+      "workMode": "On-site",
+      "keySkills": [
+        "Systems Architecture",
+        "High Availability",
+        "Database Operations",
+        "Security"
+      ],
+      "status": "published",
+      "isVerified": true,
+      "verifiedAt": "2026-10-08"
+    },
+    {
+      "id": "ra-rn521",
+      "slug": "it-support-engineer-rwandair",
+      "title": "IT Support Engineer",
+      "company": "RwandAir",
+      "mark": "RA",
+      "markClass": "mark-teal",
+      "location": "Rwanda",
+      "categories": [
+        "Tech & digital"
+      ],
+      "engagement": "Permanent",
+      "minSalary": null,
+      "maxSalary": null,
+      "salaryLabel": "Salary not disclosed",
+      "published": "2026-10-06",
+      "deadline": "2026-10-20",
+      "sourceUrl": "https://erecruitment.rwandair.com/Home/Moreinfo/RN000521",
+      "destinationUrl": "https://erecruitment.rwandair.com/Jobs/NewApplication?employeeRequisitionNo=RN000521",
+      "applyText": "Apply on RwandAir portal",
+      "applyInstructions": "Apply directly through RwandAir’s recruitment portal.",
+      "experience": "2 years’ experience, as listed in the RwandAir vacancies table.",
+      "summary": "Permanent opening with RwandAir in Rwanda. The checked vacancies table lists 2 years of experience; no additional requirements are summarized here.",
+      "requirementsNote": "See RwandAir’s official role page for complete criteria; this card includes only the verified experience level.",
+      "district": "Kigali (Kicukiro/Airport)",
+      "sector": "Aviation & Technology",
+      "rwfSalaryEst": "1,400,000 - 2,400,000 RWF / month",
+      "workMode": "On-site",
+      "keySkills": [
+        "Systems Architecture",
+        "High Availability",
+        "Database Operations",
+        "Security"
+      ],
+      "status": "published",
+      "isVerified": true,
+      "verifiedAt": "2026-10-08"
+    },
+    {
+      "id": "ra-rn522",
+      "slug": "software-application-engineer-rwandair",
+      "title": "Software and Application Engineer",
+      "company": "RwandAir",
+      "mark": "RA",
+      "markClass": "mark-teal",
+      "location": "Rwanda",
+      "categories": [
+        "Tech & digital"
+      ],
+      "engagement": "Permanent",
+      "minSalary": null,
+      "maxSalary": null,
+      "salaryLabel": "Salary not disclosed",
+      "published": "2026-10-06",
+      "deadline": "2026-10-20",
+      "sourceUrl": "https://erecruitment.rwandair.com/Home/Moreinfo/RN000522",
+      "destinationUrl": "https://erecruitment.rwandair.com/Jobs/NewApplication?employeeRequisitionNo=RN000522",
+      "applyText": "Apply on RwandAir portal",
+      "applyInstructions": "Apply directly through RwandAir’s recruitment portal.",
+      "experience": "3 years’ experience, as listed in the RwandAir vacancies table.",
+      "summary": "Permanent opening with RwandAir in Rwanda. The checked vacancies table lists 3 years of experience; no additional requirements are summarized here.",
+      "requirementsNote": "See RwandAir’s official role page for complete criteria; this card includes only the verified experience level.",
+      "district": "Kigali (Kicukiro/Airport)",
+      "sector": "Aviation & Technology",
+      "rwfSalaryEst": "1,400,000 - 2,400,000 RWF / month",
+      "workMode": "On-site",
+      "keySkills": [
+        "Systems Architecture",
+        "High Availability",
+        "Database Operations",
+        "Security"
+      ],
+      "status": "published",
+      "isVerified": true,
+      "verifiedAt": "2026-10-08"
+    },
+    {
+      "id": "ra-rn523",
+      "slug": "it-security-specialist-rwandair",
+      "title": "IT Security Specialist",
+      "company": "RwandAir",
+      "mark": "RA",
+      "markClass": "mark-teal",
+      "location": "Rwanda",
+      "categories": [
+        "Tech & digital"
+      ],
+      "engagement": "Permanent",
+      "minSalary": null,
+      "maxSalary": null,
+      "salaryLabel": "Salary not disclosed",
+      "published": "2026-10-06",
+      "deadline": "2026-10-20",
+      "sourceUrl": "https://erecruitment.rwandair.com/Home/Moreinfo/RN000523",
+      "destinationUrl": "https://erecruitment.rwandair.com/Jobs/NewApplication?employeeRequisitionNo=RN000523",
+      "applyText": "Apply on RwandAir portal",
+      "applyInstructions": "Apply directly through RwandAir’s recruitment portal.",
+      "experience": "2 years’ experience, as listed in the RwandAir vacancies table.",
+      "summary": "Permanent opening with RwandAir in Rwanda. The checked vacancies table lists 2 years of experience; no additional requirements are summarized here.",
+      "requirementsNote": "See RwandAir’s official role page for complete criteria; this card includes only the verified experience level.",
+      "district": "Kigali (Kicukiro/Airport)",
+      "sector": "Aviation & Technology",
+      "rwfSalaryEst": "1,400,000 - 2,400,000 RWF / month",
+      "workMode": "On-site",
+      "keySkills": [
+        "Systems Architecture",
+        "High Availability",
+        "Database Operations",
+        "Security"
+      ],
+      "status": "published",
+      "isVerified": true,
+      "verifiedAt": "2026-10-08"
+    },
+    {
+      "id": "fawe-procurement",
+      "slug": "procurement-officer-fawe",
+      "title": "Procurement Officer",
+      "company": "FAWE Rwanda Chapter",
+      "mark": "FR",
+      "markClass": "mark-gold",
+      "location": "Kigali",
+      "categories": [
+        "Operations"
+      ],
+      "engagement": "3-year renewable term",
+      "minSalary": null,
+      "maxSalary": null,
+      "salaryLabel": "Salary not disclosed",
+      "published": "2026-10-01",
+      "deadline": "2026-10-15",
+      "sourceUrl": "https://www.jobinrwanda.com/job/procurement-officer-50",
+      "destinationUrl": "https://www.jobinrwanda.com/form/default-job-application-form?job_application_job=32633",
+      "applyText": "Apply through Job in Rwanda",
+      "applyInstructions": "Submit your application through the Job in Rwanda form. The role is a 3-year term, renewable subject to performance and funding.",
+      "summary": "FAWE Rwanda Chapter seeks a Procurement Officer for a 3-year renewable term, subject to performance and availability of funding.",
+      "requirements": [
+        "Bachelor’s or master’s degree in procurement, supply chain, logistics, business/management, or a related field.",
+        "At least 3 years of relevant experience."
+      ],
+      "district": "Kigali (Gasabo)",
+      "sector": "NGO & Education",
+      "rwfSalaryEst": "900,000 - 1,500,000 RWF / month",
+      "workMode": "On-site",
+      "keySkills": [
+        "Public Procurement",
+        "Vendor Management",
+        "Tender Preparation",
+        "Budget Monitoring"
+      ],
+      "status": "published",
+      "isVerified": true,
+      "verifiedAt": "2026-10-08"
+    },
+    {
+      "id": "harmony-nonvoice",
+      "slug": "customer-service-non-voice-harmony",
+      "title": "Customer Service Representative – Non-Voice",
+      "company": "Harmony Support BPO Ltd",
+      "mark": "HS",
+      "markClass": "mark-coral",
+      "location": "Kigali",
+      "categories": [
+        "Customer care"
+      ],
+      "engagement": "Full-time",
+      "minSalary": null,
+      "maxSalary": null,
+      "salaryLabel": "Salary not disclosed",
+      "published": "2026-09-15",
+      "deadline": "2026-10-15",
+      "deadlineTime": "17:00",
+      "sourceUrl": "https://www.jobinrwanda.com/job/customer-service-representative-non-voice",
+      "destinationUrl": "https://www.jobinrwanda.com/form/default-job-application-form?job_application_job=32330",
+      "applyText": "Apply through Job in Rwanda",
+      "applyInstructions": "Apply through the Job in Rwanda form by 17:00 Kigali time on 15 October 2026.",
+      "summary": "Full-time non-voice customer service role in Kigali. Fresh graduates may be considered.",
+      "requirements": [
+        "Bachelor’s degree.",
+        "Strong written English, typing and computer literacy, and attention to detail."
+      ],
+      "district": "Kigali (Nyarugenge)",
+      "sector": "BPO & Customer Services",
+      "rwfSalaryEst": "400,000 - 650,000 RWF / month",
+      "workMode": "On-site",
+      "keySkills": [
+        "Written English",
+        "Fast Typing Speed",
+        "Email & Chat Support",
+        "Customer Care"
+      ],
+      "status": "published",
+      "isVerified": true,
+      "verifiedAt": "2026-10-08"
+    },
+    {
+      "id": "dpworld-sales",
+      "slug": "sales-executive-dp-world",
+      "title": "Sales Executive",
+      "company": "DP World Logistics Rwanda",
+      "mark": "DP",
+      "markClass": "mark-blue",
+      "location": "Kigali",
+      "categories": [
+        "Sales"
+      ],
+      "minSalary": null,
+      "maxSalary": null,
+      "salaryLabel": "Salary not disclosed",
+      "published": "2026-10-02",
+      "deadline": "2026-10-17",
+      "sourceUrl": "https://www.jobinrwanda.com/job/sales-executive-11",
+      "destinationUrl": "mailto:info.dpworldkigali@dpworld.com?subject=Application%20%E2%80%94%20Sales%20Executive%20%E2%80%94%20DP%20World%20Logistics%20Rwanda",
+      "applyText": "Email DP World to apply",
+      "applyInstructions": "Email your updated CV, academic credentials, and application letter to info.dpworldkigali@dpworld.com. The email link includes a prefilled subject.",
+      "summary": "Sales Executive opening in Kigali. The posting prefers 1–3 years of relevant experience and a bachelor’s degree in business, marketing, supply chain, logistics, or a related field.",
+      "requirements": [
+        "Preferably 1–3 years of relevant experience.",
+        "Bachelor’s degree in business, marketing, supply chain, logistics, or a related field."
+      ],
+      "district": "Kigali (Masaka Dry Port)",
+      "sector": "Logistics & Trade",
+      "rwfSalaryEst": "1,100,000 - 1,900,000 RWF / month",
+      "workMode": "On-site",
+      "keySkills": [
+        "Port Logistics",
+        "Supply Chain Management",
+        "Customs Clearance",
+        "Fleet Operations"
+      ],
+      "status": "published",
+      "isVerified": true,
+      "verifiedAt": "2026-10-08"
+    },
+    {
+      "id": "oaf-audit-supervisor",
+      "slug": "data-audit-supervisor-one-acre-fund",
+      "title": "Rwanda Data Audit Supervisor (Fixed-Term)",
+      "company": "One Acre Fund",
+      "mark": "OA",
+      "markClass": "mark-lime",
+      "location": "Muhanga",
+      "categories": [
+        "Operations",
+        "Tech & digital"
+      ],
+      "engagement": "6-month renewable contract",
+      "minSalary": null,
+      "maxSalary": null,
+      "salaryLabel": "Salary not disclosed",
+      "published": "2026-10-01",
+      "deadline": "2026-12-23",
+      "sourceUrl": "https://www.jobinrwanda.com/job/rwanda-data-audit-supervisor-fixed-term-0",
+      "destinationUrl": "https://job-boards.greenhouse.io/oneacrefundrwanda/jobs/8222905?gh_src=ghl7yoh21us",
+      "applyText": "Apply on One Acre Fund",
+      "applyInstructions": "Apply through One Acre Fund’s Greenhouse application page.",
+      "summary": "Six-month renewable fixed-term role based in Muhanga. Open only to Rwandan citizens or permanent residents.",
+      "requirements": [
+        "Bachelor’s degree in data management, statistics, IT, agriculture, or a related field.",
+        "Experience in data verification or quality, and intermediate Excel.",
+        "English and Kinyarwanda reporting.",
+        "Rwanda citizen or permanent resident."
+      ],
+      "district": "Rubengera / Kigali",
+      "sector": "Agriculture & Social Enterprise",
+      "rwfSalaryEst": "950,000 - 1,600,000 RWF / month",
+      "workMode": "On-site",
+      "keySkills": [
+        "Rural Development",
+        "Agricultural Operations",
+        "Team Leadership",
+        "Field Coordination"
+      ],
+      "status": "published",
+      "isVerified": true,
+      "verifiedAt": "2026-10-08"
+    },
+    {
+      "id": "usembassy-clo",
+      "slug": "clo-administrative-assistant-us-embassy",
+      "title": "CLO Administrative Assistant",
+      "company": "U.S. Embassy Kigali",
+      "mark": "US",
+      "markClass": "mark-rose",
+      "location": "Kigali",
+      "categories": [
+        "Operations"
+      ],
+      "minSalary": null,
+      "maxSalary": null,
+      "salaryLabel": "Salary not disclosed",
+      "published": "2026-10-01",
+      "deadline": "2026-10-16",
+      "sourceUrl": "https://www.jobinrwanda.com/job/clo-administrative-assistant",
+      "destinationUrl": "https://erajobs.state.gov/dos-era/vacancysearch/searchVacancies.hms",
+      "applyText": "Open U.S. Department of State ERA",
+      "applyInstructions": "Apply through the U.S. Department of State ERA portal. The posting says not to submit applications by email.",
+      "summary": "Supports Community Liaison Office programming and administration in Kigali. The posting is open to interested candidates.",
+      "requirements": [],
+      "requirementsNote": "The checked brief does not include detailed eligibility criteria; review the ERA vacancy before applying.",
+      "district": "Kigali (Kacyiru)",
+      "sector": "Diplomatic & International Relations",
+      "rwfSalaryEst": "1,800,000 - 3,200,000 RWF / month",
+      "workMode": "On-site",
+      "keySkills": [
+        "Diplomatic Protocol",
+        "Administrative Excellence",
+        "Compliance",
+        "English & Kinyarwanda"
+      ],
+      "status": "published",
+      "isVerified": true,
+      "verifiedAt": "2026-10-08"
+    },
+    {
+      "id": "lfl-maintenance",
+      "slug": "senior-maintenance-technician-lfl",
+      "title": "Senior Maintenance Technician",
+      "company": "LFL Rwanda Ltd",
+      "mark": "LF",
+      "markClass": "mark-gold",
+      "location": "Rwanda",
+      "categories": [
+        "Operations"
+      ],
+      "engagement": "Full-time",
+      "minSalary": null,
+      "maxSalary": null,
+      "salaryLabel": "Salary not disclosed",
+      "published": "2026-09-21",
+      "deadline": "2026-10-16",
+      "sourceUrl": "https://www.jobinrwanda.com/job/senior-maintenance-technician",
+      "destinationUrl": "https://www.jobinrwanda.com/form/default-job-application-form?job_application_job=32412",
+      "applyText": "Apply through Job in Rwanda",
+      "applyInstructions": "Apply through the Job in Rwanda application form.",
+      "summary": "Full-time Senior Maintenance Technician opening in Rwanda.",
+      "requirements": [
+        "Diploma or advanced diploma in electromechanical engineering.",
+        "At least 2 years of experience."
+      ],
+      "district": "Kigali",
+      "sector": "Professional Services",
+      "rwfSalaryEst": "800,000 - 1,400,000 RWF / month",
+      "workMode": "On-site",
+      "keySkills": [
+        "Teamwork",
+        "Communication",
+        "Execution",
+        "Rwandan Regulatory Awareness"
+      ],
+      "status": "published",
+      "isVerified": true,
+      "verifiedAt": "2026-10-08"
+    },
+    {
+      "id": "rssb-contracting",
+      "slug": "contracting-partnership-officer-rssb",
+      "title": "Senior Officer, Contracting and Partnership Management",
+      "company": "Rwanda Social Security Board (RSSB)",
+      "mark": "RS",
+      "markClass": "mark-teal",
+      "location": null,
+      "department": "Medical",
+      "categories": [
+        "Operations"
+      ],
+      "minSalary": null,
+      "maxSalary": null,
+      "salaryLabel": "Salary not disclosed",
+      "published": null,
+      "deadline": "2026-10-14",
+      "sourceUrl": "https://rssb.rw/rw/career",
+      "destinationUrl": "https://rssb.rw/rw/career",
+      "applyText": "View RSSB Careers opening",
+      "applyInstructions": "Open the role from the RSSB careers page and follow its application link. The detailed role profile requires sign-in.",
+      "summary": "RSSB Careers lists this Medical department opening as Open. Its linked role profile requires sign-in, so duties and qualifications are not repeated here.",
+      "requirements": [],
+      "requirementsNote": "The detailed role profile linked from RSSB Careers requires sign-in; review it there for duties and qualifications.",
+      "district": "Kigali",
+      "sector": "Professional Services",
+      "rwfSalaryEst": "800,000 - 1,400,000 RWF / month",
+      "workMode": "On-site",
+      "keySkills": [
+        "Teamwork",
+        "Communication",
+        "Execution",
+        "Rwandan Regulatory Awareness"
+      ],
+      "status": "published",
+      "isVerified": true,
+      "verifiedAt": "2026-10-08"
+    },
+    {
+      "id": "capitalist-pr",
+      "slug": "public-relations-marketing-officer-capitalist",
+      "title": "Public Relations & Marketing Officer",
+      "company": "Capitalist Supply & Logistics Ltd",
+      "mark": "CS",
+      "markClass": "mark-coral",
+      "location": "Gasabo, Kigali",
+      "categories": [
+        "Sales",
+        "Marketing"
+      ],
+      "minSalary": null,
+      "maxSalary": null,
+      "salaryLabel": "Salary not disclosed",
+      "published": "2026-10-03",
+      "deadline": "2026-11-03",
+      "sourceUrl": "https://www.jobinrwanda.com/job/public-relations-marketing-officer",
+      "destinationUrl": "https://capitalist.rw/careers",
+      "applyText": "Apply on Capitalist careers",
+      "applyInstructions": "Apply through the company’s careers page.",
+      "summary": "Kigali role covering brand awareness, lead generation, digital marketing, public relations, and partnerships.",
+      "requirements": [
+        "English and Kinyarwanda; French is an advantage.",
+        "Degree in marketing, public relations, communications, or business, or equivalent experience."
+      ],
+      "district": "Kigali",
+      "sector": "Professional Services",
+      "rwfSalaryEst": "800,000 - 1,400,000 RWF / month",
+      "workMode": "On-site",
+      "keySkills": [
+        "Teamwork",
+        "Communication",
+        "Execution",
+        "Rwandan Regulatory Awareness"
+      ],
+      "status": "published",
+      "isVerified": true,
+      "verifiedAt": "2026-10-08"
+    },
+    {
+      "id": "tea-shop-manager-hrms",
+      "slug": "tea-shop-manager-hrms",
+      "title": "Tea Shop Manager",
+      "company": "HR Management Services Ltd (HRMS Ltd)",
+      "mark": "HM",
+      "markClass": "mark-gold",
+      "location": "Kigali",
+      "categories": [
+        "Hospitality",
+        "Customer care"
+      ],
+      "minSalary": null,
+      "maxSalary": null,
+      "salaryLabel": "Salary not disclosed",
+      "published": "2026-10-07",
+      "deadline": "2026-10-15",
+      "deadlineTime": "17:00",
+      "deadlineTimezone": "Kigali",
+      "sourceUrl": "https://www.jobinrwanda.com/job/tea-shop-manager",
+      "destinationUrl": "https://www.jobinrwanda.com/form/default-job-application-form?job_application_job=32688",
+      "applyInstructions": "Submit your CV through the Job in Rwanda application form by 17:00 Kigali time on 15 October 2026.",
+      "summary": "Tea Shop Manager opening in Kigali, posted by HR Management Services Ltd (HRMS Ltd).",
+      "requirements": [
+        "Diploma or bachelor’s degree in business, marketing, sales, hospitality, or a related field.",
+        "2–3 years in sales, hospitality, customer service, or lounge management."
+      ],
+      "district": "Kigali",
+      "sector": "Professional Services",
+      "rwfSalaryEst": "800,000 - 1,400,000 RWF / month",
+      "workMode": "On-site",
+      "keySkills": [
+        "Teamwork",
+        "Communication",
+        "Execution",
+        "Rwandan Regulatory Awareness"
+      ],
+      "status": "published",
+      "isVerified": true,
+      "verifiedAt": "2026-10-08"
+    },
+    {
+      "id": "hospitality-manager-hope-haven",
+      "slug": "hospitality-manager-hope-haven",
+      "title": "Hospitality Manager",
+      "company": "Hope Haven Christian School",
+      "mark": "HH",
+      "markClass": "mark-teal",
+      "location": "Murindi, Kigali",
+      "categories": [
+        "Hospitality"
+      ],
+      "engagement": "Open-ended after 3-month probation",
+      "minSalary": null,
+      "maxSalary": null,
+      "salaryLabel": "Salary not disclosed",
+      "published": "2026-10-07",
+      "deadline": "2026-10-21",
+      "sourceUrl": "https://www.jobinrwanda.com/job/hospitality-manager",
+      "destinationUrl": "https://hopehavenschool.ddns.net/careers",
+      "applyInstructions": "Submit your CV, academic and relevant certificates, and a one-page cover letter with motivation through the employer’s careers page.",
+      "summary": "Hospitality Manager role at Hope Haven Christian School in Murindi, Kigali. The contract is open-ended after a 3-month probation.",
+      "requirements": [
+        "Bachelor’s degree or relevant professional qualification in hospitality, hotel, tourism, business, or a related field.",
+        "3–5 years of relevant experience.",
+        "Strong English.",
+        "Submit a CV, certificates, and a one-page cover letter with motivation."
+      ],
+      "district": "Kigali",
+      "sector": "Professional Services",
+      "rwfSalaryEst": "800,000 - 1,400,000 RWF / month",
+      "workMode": "On-site",
+      "keySkills": [
+        "Teamwork",
+        "Communication",
+        "Execution",
+        "Rwandan Regulatory Awareness"
+      ],
+      "status": "published",
+      "isVerified": true,
+      "verifiedAt": "2026-10-08"
+    },
+    {
+      "id": "physical-mental-wellbeing-specialist-fh",
+      "slug": "physical-mental-wellbeing-specialist-fh",
+      "title": "Physical and Mental Wellbeing Specialist",
+      "company": "FH Association Rwanda (Food for the Hungry)",
+      "mark": "FH",
+      "markClass": "mark-lime",
+      "location": "Kigali HQ",
+      "categories": [
+        "Health & development"
+      ],
+      "minSalary": null,
+      "maxSalary": null,
+      "salaryLabel": "Salary not disclosed",
+      "published": "2026-10-07",
+      "deadline": "2026-10-21",
+      "deadlineTime": "17:30",
+      "deadlineTimezone": "Kigali",
+      "sourceUrl": "https://www.jobinrwanda.com/job/physical-and-mental-wellbeing-specialist",
+      "destinationUrl": "http://105.179.7.34/fhrwjobs",
+      "applyInstructions": "Complete the employer’s form at the exact HTTP destination. The posting asks for a cover letter and updated CV/resume with three professional referees by 17:30 Kigali time on 21 October 2026.",
+      "summary": "Physical and Mental Wellbeing Specialist based at FH Rwanda’s Kigali headquarters. The posting requires agreement with FH’s Christian beliefs.",
+      "requirements": [
+        "Bachelor’s degree in public health or a related field.",
+        "At least 7 years of relevant health, wellbeing, or community health experience.",
+        "Willingness and ability to travel to programme sites.",
+        "Full agreement with FH’s Christian beliefs."
+      ],
+      "district": "Kigali",
+      "sector": "Professional Services",
+      "rwfSalaryEst": "800,000 - 1,400,000 RWF / month",
+      "workMode": "On-site",
+      "keySkills": [
+        "Teamwork",
+        "Communication",
+        "Execution",
+        "Rwandan Regulatory Awareness"
+      ],
+      "status": "published",
+      "isVerified": true,
+      "verifiedAt": "2026-10-08"
+    },
+    {
+      "id": "customer-care-ratwa-sacco-huye",
+      "slug": "customer-care-ratwa-sacco-huye",
+      "title": "Customer Care",
+      "company": "RATWA SACCO HUYE",
+      "mark": "RH",
+      "markClass": "mark-coral",
+      "location": "Huye",
+      "categories": [
+        "Customer care"
+      ],
+      "minSalary": null,
+      "maxSalary": null,
+      "salaryLabel": "Salary not disclosed",
+      "published": "2026-10-06",
+      "deadline": "2026-10-19",
+      "deadlineTime": "17:00",
+      "sourceUrl": "https://www.jobinrwanda.com/job/customer-care-0",
+      "destinationUrl": "https://www.jobinrwanda.com/job/customer-care-0",
+      "applyLabel": "View application instructions via AkaziConnect",
+      "applyInstructions": "There is no online form. Submit the application physically to RATWA SACCO HUYE Head Office, Office of HR, Procurement and Logistics, by 17:00 on 19 October 2026. The AkaziConnect link opens the Job in Rwanda instructions.",
+      "summary": "Customer Care opening at RATWA SACCO HUYE. Applications must be submitted physically; no online form is listed.",
+      "requirements": [
+        "A2 secondary education in a related domain.",
+        "2 years of customer-care experience."
+      ],
+      "district": "Kigali",
+      "sector": "Professional Services",
+      "rwfSalaryEst": "800,000 - 1,400,000 RWF / month",
+      "workMode": "On-site",
+      "keySkills": [
+        "Teamwork",
+        "Communication",
+        "Execution",
+        "Rwandan Regulatory Awareness"
+      ],
+      "status": "published",
+      "isVerified": true,
+      "verifiedAt": "2026-10-08"
+    },
+    {
+      "id": "executive-coordinator-ace-aj-laf",
+      "slug": "executive-coordinator-ace-aj-laf",
+      "title": "Executive Coordinator, ACE-AJ Secretariat",
+      "company": "Legal Aid Forum (LAF)",
+      "mark": "LA",
+      "markClass": "mark-blue",
+      "location": "Kigali",
+      "categories": [
+        "NGO & development"
+      ],
+      "engagement": "Full-time",
+      "minSalary": null,
+      "maxSalary": null,
+      "salaryLabel": "Salary not disclosed",
+      "published": "2026-10-06",
+      "deadline": "2026-10-30",
+      "sourceUrl": "https://www.jobinrwanda.com/job/executive-coordinator-ace-aj-secretariat",
+      "destinationUrl": "mailto:legalaidrwanda@gmail.com?cc=ace.a2j@gmail.com&subject=Application%20%E2%80%94%20Executive%20Coordinator%20ACE-AJ%20Secretariat",
+      "applyInstructions": "Email your application to legalaidrwanda@gmail.com with ace.a2j@gmail.com copied. The AkaziConnect redirect opens a pre-addressed email with the specified subject.",
+      "summary": "Full-time Executive Coordinator role for the ACE-AJ Secretariat in Kigali. The posting is intended primarily for Rwandan nationals or non-Rwandans already legally resident and authorized to work in Rwanda.",
+      "requirements": [
+        "Master’s in law, human rights, development studies, public policy, international relations, governance, programme management, or a related field; or a strong bachelor’s with senior experience.",
+        "At least 5 years of relevant experience.",
+        "Primarily intended for Rwandan nationals or non-Rwandans already legally resident and authorized to work in Rwanda."
+      ],
+      "district": "Kigali",
+      "sector": "Professional Services",
+      "rwfSalaryEst": "800,000 - 1,400,000 RWF / month",
+      "workMode": "On-site",
+      "keySkills": [
+        "Teamwork",
+        "Communication",
+        "Execution",
+        "Rwandan Regulatory Awareness"
+      ],
+      "status": "published",
+      "isVerified": true,
+      "verifiedAt": "2026-10-08"
+    },
+    {
+      "id": "shec-officer-luna-smelter",
+      "slug": "shec-officer-luna-smelter",
+      "title": "SHEC Officer",
+      "company": "LuNa Smelter Ltd",
+      "mark": "LS",
+      "markClass": "mark-gold",
+      "location": "Kigali",
+      "categories": [
+        "Engineering & safety"
+      ],
+      "engagement": "Full-time",
+      "minSalary": null,
+      "maxSalary": null,
+      "salaryLabel": "Salary not disclosed",
+      "published": "2026-10-05",
+      "deadline": "2026-10-19",
+      "sourceUrl": "https://www.jobinrwanda.com/job/shec-officer",
+      "destinationUrl": "mailto:hr@lunasmelter.com?subject=SHEC%20Officer",
+      "applyInstructions": "Email your CV to hr@lunasmelter.com with the subject “SHEC Officer”. The AkaziConnect redirect opens a pre-addressed email.",
+      "summary": "Full-time SHEC Officer role in Kigali. The posting says it is locally open.",
+      "requirements": [
+        "Bachelor’s in occupational health/safety, environmental science/management, or a related field.",
+        "2–3 years of relevant SHEC/HSE experience, preferably in a high-risk industry.",
+        "NEBOSH, IOSH, or OSHA is an advantage."
+      ],
+      "district": "Kigali",
+      "sector": "Professional Services",
+      "rwfSalaryEst": "800,000 - 1,400,000 RWF / month",
+      "workMode": "On-site",
+      "keySkills": [
+        "Teamwork",
+        "Communication",
+        "Execution",
+        "Rwandan Regulatory Awareness"
+      ],
+      "status": "published",
+      "isVerified": true,
+      "verifiedAt": "2026-10-08"
+    },
+    {
+      "id": "master-data-integration-specialist-one-acre-fund",
+      "slug": "master-data-integration-specialist-one-acre-fund",
+      "title": "Rwanda Master Data and Integration Specialist (Fixed-Term)",
+      "company": "One Acre Fund",
+      "mark": "OA",
+      "markClass": "mark-lime",
+      "location": "Kigali",
+      "categories": [
+        "Tech & digital",
+        "Finance"
+      ],
+      "engagement": "2-year contract",
+      "minSalary": null,
+      "maxSalary": null,
+      "salaryLabel": "Salary not disclosed",
+      "published": "2026-10-05",
+      "deadline": "2027-01-03",
+      "sourceUrl": "https://www.jobinrwanda.com/job/rwanda-master-data-and-integration-specialist-fixed-term",
+      "destinationUrl": "https://oneacrefund.org/vacancies/?gh_jid=8248758&gh_src=ya3a9boa1us",
+      "applyInstructions": "Apply through One Acre Fund’s official vacancy page.",
+      "summary": "Two-year fixed-term role with One Acre Fund in Kigali. Open only to Rwandan citizens or permanent residents.",
+      "requirements": [
+        "Bachelor’s in computer science, IT, finance, BIS, or a related field.",
+        "2–5 years in data integration, master data, or systems analysis.",
+        "SAP Business One, advanced Excel, and English and Kinyarwanda.",
+        "Rwandan citizen or permanent resident."
+      ],
+      "district": "Rubengera / Kigali",
+      "sector": "Agriculture & Social Enterprise",
+      "rwfSalaryEst": "950,000 - 1,600,000 RWF / month",
+      "workMode": "On-site",
+      "keySkills": [
+        "Rural Development",
+        "Agricultural Operations",
+        "Team Leadership",
+        "Field Coordination"
+      ],
+      "status": "published",
+      "isVerified": true,
+      "verifiedAt": "2026-10-08"
+    },
+    {
+      "id": "finance-lead-wicloud",
+      "slug": "finance-lead-wicloud",
+      "title": "Finance Lead",
+      "company": "Wicloud",
+      "mark": "WC",
+      "markClass": "mark-rose",
+      "location": "Kigali",
+      "categories": [
+        "Finance"
+      ],
+      "engagement": "Full-time",
+      "minSalary": null,
+      "maxSalary": null,
+      "salaryLabel": "Salary not disclosed",
+      "published": "2026-09-16",
+      "deadline": "2026-10-16",
+      "sourceUrl": "https://www.jobinrwanda.com/job/finance-lead-jd",
+      "destinationUrl": "mailto:Francis@itechwx.com?subject=Finance%20Lead%20Application",
+      "applyInstructions": "Email your CV to Francis@itechwx.com. The posting specifies the subject/body format “Role+Application+their name”; the AkaziConnect redirect pre-fills the subject.",
+      "summary": "Full-time Finance Lead role in Kigali.",
+      "requirements": [
+        "Bachelor’s in accounting, finance, or a related field.",
+        "At least 3 years of relevant accounting or finance experience.",
+        "Full-cycle accounting, Rwanda tax/payroll compliance, ERP/accounting software, Excel, and English."
+      ],
+      "district": "Kigali",
+      "sector": "Professional Services",
+      "rwfSalaryEst": "800,000 - 1,400,000 RWF / month",
+      "workMode": "On-site",
+      "keySkills": [
+        "Teamwork",
+        "Communication",
+        "Execution",
+        "Rwandan Regulatory Awareness"
+      ],
+      "status": "published",
+      "isVerified": true,
+      "verifiedAt": "2026-10-08"
+    }
+  ],
+  "applications": [],
+  "payments": [],
+  "pricing": {
+    "entryFeeRwf": 5000,
+    "entryMaxSalary": 350000,
+    "midFeeRwf": 10000,
+    "midMaxSalary": 700000,
+    "upperFeeRwf": 15000,
+    "upperMaxSalary": 1500000,
+    "seniorFeeRwf": 20000,
+    "fallbackFeeRwf": 5000,
+    "minFeeRwf": 5000,
+    "maxFeeRwf": 20000,
+    "exemptJobIds": [],
+    "activeProviders": {
+      "mtn_momo": true,
+      "airtel_money": true,
+      "bank_card": true
+    },
+    "termsNoticeEn": "The application fee is charged by AkaziConnect Rwanda for verified application processing, tracking, and notification services. It is not paid to the employer and does not guarantee shortlisting or employment.",
+    "termsNoticeRw": "Amafaranga yo gusaba akazi yishyurwa AkaziConnect Rwanda kubera serivisi zo kugenzura no kohereza dosiye yawe mu buryo bwizewe. Ntabwo ahabwa umukoresha kandi ntagurisha umwanya w’akazi.",
+    "updatedAt": "2026-10-10T09:13:08.522Z"
+  },
+  "branding": {
+    "appName": "AkaziConnect",
+    "tagline": "Find work that moves you",
+    "appLogoSvg": null,
+    "headerIconSvg": null,
+    "companyLogos": {},
+    "themeColor": "#174332",
+    "updatedAt": "2026-10-10T09:13:08.522Z"
+  },
+  "analytics": {
+    "totalVisits": 1430,
+    "uniqueVisitors": 685,
+    "totalInternalClicks": 4907,
+    "jobViewsCount": {
+      "ra-rn519": 342,
+      "ra-rn520": 288,
+      "fawe-procurement": 214,
+      "harmony-nonvoice": 195,
+      "dp-inventory": 167,
+      "oaf-systems": 152
+    },
+    "companyClicksCount": {
+      "RwandAir": 890,
+      "One Acre Fund": 420,
+      "FAWE Rwanda Chapter": 380,
+      "DP World Logistics Rwanda": 350,
+      "Harmony Support BPO": 310,
+      "U.S. Embassy Kigali": 280
+    },
+    "recentEvents": [
+      {
+        "id": "ev-1791633743193-186",
+        "type": "job_details_view",
+        "target": "Rwanda Master Data and Integration Specialist (Fixed-Term)",
+        "path": "/",
+        "timestamp": "2026-10-10T12:02:23.193Z"
+      },
+      {
+        "id": "ev-1791633723216-811",
+        "type": "status_change",
+        "target": "ra-rn523:applied",
+        "path": "/",
+        "timestamp": "2026-10-10T12:02:03.216Z"
+      },
+      {
+        "id": "ev-1791633721835-757",
+        "type": "status_change",
+        "target": "ra-rn523:interviewing",
+        "path": "/",
+        "timestamp": "2026-10-10T12:02:01.835Z"
+      },
+      {
+        "id": "ev-1791633720980-0",
+        "type": "status_change",
+        "target": "ra-rn523:offered",
+        "path": "/",
+        "timestamp": "2026-10-10T12:02:00.980Z"
+      },
+      {
+        "id": "ev-1791633719244-430",
+        "type": "status_change",
+        "target": "ra-rn523:interviewing",
+        "path": "/",
+        "timestamp": "2026-10-10T12:01:59.244Z"
+      },
+      {
+        "id": "ev-1791633718755-708",
+        "type": "status_change",
+        "target": "ra-rn523:applied",
+        "path": "/",
+        "timestamp": "2026-10-10T12:01:58.755Z"
+      },
+      {
+        "id": "ev-1791633717722-38",
+        "type": "status_change",
+        "target": "ra-rn523:offered",
+        "path": "/",
+        "timestamp": "2026-10-10T12:01:57.722Z"
+      },
+      {
+        "id": "ev-1791633716860-704",
+        "type": "status_change",
+        "target": "ra-rn523:interviewing",
+        "path": "/",
+        "timestamp": "2026-10-10T12:01:56.860Z"
+      },
+      {
+        "id": "ev-1791633706447-773",
+        "type": "job_details_view",
+        "target": "IT Security Specialist",
+        "path": "/",
+        "timestamp": "2026-10-10T12:01:46.447Z"
+      },
+      {
+        "id": "ev-1791633515185-366",
+        "type": "visit",
+        "target": "App Opened",
+        "path": "/",
+        "timestamp": "2026-10-10T11:58:35.185Z"
+      },
+      {
+        "id": "ev-1791633051773-124",
+        "type": "job_details_view",
+        "target": "SHEC Officer",
+        "path": "/admin",
+        "timestamp": "2026-10-10T11:50:51.773Z"
+      },
+      {
+        "id": "ev-1791632939412-580",
+        "type": "visit",
+        "target": "App Opened",
+        "path": "/admin",
+        "timestamp": "2026-10-10T11:48:59.412Z"
+      },
+      {
+        "id": "ev-1791632936132-629",
+        "type": "visit",
+        "target": "App Opened",
+        "path": "/admin",
+        "timestamp": "2026-10-10T11:48:56.132Z"
+      },
+      {
+        "id": "ev-1791632921043-662",
+        "type": "visit",
+        "target": "App Opened",
+        "path": "/",
+        "timestamp": "2026-10-10T11:48:41.043Z"
+      },
+      {
+        "id": "ev-1791632904231-107",
+        "type": "job_details_view",
+        "target": "Data Engineer",
+        "path": "/",
+        "timestamp": "2026-10-10T11:48:24.231Z"
+      },
+      {
+        "id": "ev-1791632901525-627",
+        "type": "visit",
+        "target": "App Opened",
+        "path": "/",
+        "timestamp": "2026-10-10T11:48:21.525Z"
+      },
+      {
+        "id": "ev-1791632898561-889",
+        "type": "visit",
+        "target": "App Opened",
+        "path": "/",
+        "timestamp": "2026-10-10T11:48:18.561Z"
+      },
+      {
+        "id": "ev-1791632834555-57",
+        "type": "job_details_view",
+        "target": "IT Support Engineer",
+        "path": "/",
+        "timestamp": "2026-10-10T11:47:14.555Z"
+      },
+      {
+        "id": "ev-1791629414004-417",
+        "type": "visit",
+        "target": "App Opened",
+        "path": "/",
+        "timestamp": "2026-10-10T10:50:14.004Z"
+      },
+      {
+        "id": "ev-1791629003602-61",
+        "type": "job_details_view",
+        "target": "Public Relations & Marketing Officer",
+        "path": "/",
+        "timestamp": "2026-10-10T10:43:23.602Z"
+      },
+      {
+        "id": "ev-1791628945304-829",
+        "type": "job_details_view",
+        "target": "Customer Care",
+        "path": "/",
+        "timestamp": "2026-10-10T10:42:25.304Z"
+      },
+      {
+        "id": "ev-1791628934605-899",
+        "type": "visit",
+        "target": "App Opened",
+        "path": "/",
+        "timestamp": "2026-10-10T10:42:14.605Z"
+      },
+      {
+        "id": "ev-1791628060803-769",
+        "type": "job_details_view",
+        "target": "IT Support Engineer",
+        "path": "/",
+        "timestamp": "2026-10-10T10:27:40.803Z"
+      },
+      {
+        "id": "ev-1791627986043-637",
+        "type": "job_details_view",
+        "target": "IT Support Engineer",
+        "path": "/",
+        "timestamp": "2026-10-10T10:26:26.043Z"
+      },
+      {
+        "id": "ev-1791624608859-410",
+        "type": "visit",
+        "target": "App Opened",
+        "path": "/",
+        "timestamp": "2026-10-10T09:30:08.859Z"
+      },
+      {
+        "id": "ev-1791624296752-784",
+        "type": "job_details_view",
+        "target": "IT Security Specialist",
+        "path": "/",
+        "timestamp": "2026-10-10T09:24:56.752Z"
+      },
+      {
+        "id": "ev-1791624210653-991",
+        "type": "visit",
+        "target": "App Opened",
+        "path": "/",
+        "timestamp": "2026-10-10T09:23:30.653Z"
+      },
+      {
+        "id": "ev-01",
+        "type": "visit",
+        "target": "App Landing",
+        "path": "/",
+        "timestamp": "2026-10-09T03:55:00Z"
+      },
+      {
+        "id": "ev-02",
+        "type": "job_view",
+        "target": "Database Engineer - RwandAir",
+        "path": "/jobs/ra-rn519",
+        "timestamp": "2026-10-09T04:02:10Z"
+      },
+      {
+        "id": "ev-03",
+        "type": "apply_start",
+        "target": "Database Engineer",
+        "path": "/apply/ra-rn519",
+        "timestamp": "2026-10-09T04:05:22Z"
+      }
+    ],
+    "dailyVisits": {
+      "2026-10-05": 180,
+      "2026-10-06": 240,
+      "2026-10-07": 310,
+      "2026-10-08": 385,
+      "2026-10-09": 305,
+      "2026-10-10": 10
+    }
+  },
+  "aiRuns": [
+    {
+      "id": "airun-01",
+      "timestamp": "2026-10-08T06:00:00Z",
+      "jobsDiscovered": 4,
+      "jobsVerified": 4,
+      "jobsPublished": 4,
+      "status": "success",
+      "sourceSummary": "Official Rwandan Employer Feeds (RwandAir, FAWE, Harmony, DP World)"
+    }
+  ],
+  "auditLogs": [
+    {
+      "id": "aud-01",
+      "adminEmail": "admin@akazi.rw",
+      "action": "INITIALIZE_SYSTEM",
+      "details": "AkaziConnect Rwanda system initialized with verified Rwandan employers and salary fee tiers.",
+      "timestamp": "2026-10-10T09:13:08.522Z"
+    }
+  ]
+}

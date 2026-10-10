@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80">
+  <defs>
+    <linearGradient id="momoBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFCC00" />
+      <stop offset="100%" stop-color="#FFB800" />
+    </linearGradient>
+    <filter id="momoShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  <!-- Background Pill -->
+  <rect x="2" y="2" width="196" height="76" rx="20" fill="url(#momoBg)" stroke="#E5A800" stroke-width="1.5"/>
+  
+  <!-- MTN Oval Emblem -->
+  <g transform="translate(18, 14)">
+    <ellipse cx="26" cy="26" rx="26" ry="18" fill="#000000" />
+    <ellipse cx="26" cy="26" rx="24" ry="16" fill="#FFCC00" />
+    <ellipse cx="26" cy="26" rx="22.5" ry="14.5" fill="#000000" />
+    <text x="26" y="30.5" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="12" fill="#FFCC00" text-anchor="middle" letter-spacing="-0.5">MTN</text>
+  </g>
+
+  <!-- MoMo Branding -->
+  <g transform="translate(80, 22)">
+    <!-- MoMo Badge -->
+    <rect x="0" y="2" width="102" height="34" rx="17" fill="#002B49" filter="url(#momoShadow)" />
+    <!-- MoMo Text with stylized typography -->
+    <text x="51" y="25" font-family="'Century Gothic', 'Trebuchet MS', Arial, sans-serif" font-weight="900" font-size="20" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">
+      <tspan fill="#FFCC00">Mo</tspan><tspan fill="#FFFFFF">Mo</tspan>
+    </text>
+  </g>
+  
+  <!-- Subtitle -->
+  <text x="131" y="66" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="9" fill="#002B49" text-anchor="middle" letter-spacing="1.2">
+    RWANDA
+  </text>
+</svg>
